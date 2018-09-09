@@ -1,20 +1,22 @@
 <template>
-  <div>
-    <h1>Easy HTML Editor</h1>
-    <CodePanel></CodePanel>
-    <ExplanationPanel></ExplanationPanel>
+  <div class="app">
+    <PanelCollection />
   </div>
 </template>
 
 <script>
-import CodePanel from './components/CodePanel';
-import ExplanationPanel from './components/ExplanationPanel';
+import PanelCollection from './components/PanelCollection';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    CodePanel,
-    ExplanationPanel
+    PanelCollection
   }
 };
 </script>
+
+<style scoped>
+.app {
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>

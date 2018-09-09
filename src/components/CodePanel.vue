@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="code-panel">
     <textarea class="code-input" :value="code" @input="updateCode($event.target.value)">
     </textarea>
   </div>
@@ -9,7 +9,7 @@
 import { mapGetters, mapActions, mapState } from 'vuex';
 
 export default {
-  name: 'code-panel',
+  name: 'CodePanel',
   methods: {
     ...mapActions([
       'updateCode'
@@ -29,6 +29,14 @@ export default {
 <style scoped>
 .code-input {
   border: none;
-  outline: 1px solid black;
+  outline: 2px solid #DDD;
+  resize: none;
+  margin: 10px;
+  padding: 10px;
+  flex: 1;
+  box-sizing: border-box;
+}
+.code-panel {
+  display: flex;
 }
 </style>

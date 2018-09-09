@@ -2,14 +2,14 @@
   <div>
     <iframe class="sandbox" ref="iframe">
     </iframe>
-    <button :disabled="currentSelectedElement === undefined" @click="addChild">Add child</button>
   </div>
 </template>
 
 <script>
 import $ from 'jquery';
+
 export default {
-  name: 'sandbox',
+  name: 'Sandbox',
   props: {
     content: {
       type: String,
@@ -19,8 +19,7 @@ export default {
   data() {
     return {
       $c: undefined,
-      child: undefined,
-      currentSelectedElement: undefined
+      child: undefined
     };
   },
   mounted() {
@@ -50,30 +49,24 @@ export default {
 
       // INJECT CSS
       const injectedCSS = `
-      .INJECTED_highlighted {
-        background-color: yellow !important;
-      }
-      .INJECTED_hovered {
-        background-color: red !important;
-      }
       * {
-        min-height: 20px;
+        min-height: 20px !important;
         outline: 3px solid #DDD !important;
       }
       `;
       $c.find('head').append($('<style>').text(injectedCSS));
-      
-      $c.find('html').on('click', (e) => this.handleElementClicked(e.target));
+
+      /*$c.find('html').on('click', (e) => this.handleElementClicked(e.target));
 
       $c.find('html').on('mouseover mouseout', (e) => {
         $(e.target).toggleClass('INJECTED_hovered', e.type === 'mouseover');
         e.stopPropagation();
-      });
+      });*/
 
       this.$c = $c;
       this.child = child;
-    },
-    handleElementClicked(target) {
+    }
+    /*handleElementClicked(target) {
       $(target).addClass('INJECTED_highlighted');
       if (this.currentSelectedElement !== undefined) {
         $(this.currentSelectedElement).removeClass('INJECTED_highlighted');
@@ -88,7 +81,7 @@ export default {
       } else {
         $(this.currentSelectedElement).append(document.createElement(tag));
       }
-    }
+    }*/
   },
   watch: {
     content() {
@@ -101,10 +94,10 @@ export default {
 <style scoped>
 .sandbox {
   border: none;
-  outline: 1px solid black;
+  outline: none;
   margin: 0;
   padding: 0;
-  resize: both;
   overflow: auto;
+  width: 100%;
 }
 </style>

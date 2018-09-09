@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ExplanationNodeCollection :nodes="codeModel" />
+  <div class="explanation-panel">
+    <ExplanationNodeRoot :nodes="codeModel" :position="[]"/>
   </div>
 </template>
 
@@ -8,12 +8,12 @@
 import { mapGetters } from 'vuex';
 
 //import ExplanationNode from './ExplanationNode';
-import ExplanationNodeCollection from './ExplanationNodeCollection';
+import ExplanationNodeRoot from './ExplanationNodeRoot';
 
 export default {
   name: 'ExplanationPanel',
   components: {
-    ExplanationNodeCollection,
+    ExplanationNodeRoot,
     //ExplanationNode
   },
   computed: {
@@ -23,3 +23,6 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+</style>

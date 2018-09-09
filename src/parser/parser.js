@@ -60,8 +60,28 @@ function parseHTMLRecursive(html, start, outerTag, depth) {
   return x;
 }
 
-function logVerboseParse(...args) {
-  console.log(...args); // eslint-disable-line no-console
+function traverseModel(model, position) {
+  if (position.length === 0) {
+    return null;
+  } else {
+    // the first position value is a special case
+    let currentModel = model[position[0]];
+
+    for (let i = 1; i < position.length; i++) {
+      if (currentModel === undefined) {
+        return null;
+      }
+      currentModel = currentModel.children[position[i]];
+    }
+    return currentModel;
+  }
 }
 
-export { parseHTML };
+/*function logVerboseParse(...args) {
+  console.log(...args); // eslint-disable-line no-console
+}*/
+function logVerboseParse() {
+  // do nothing
+}
+
+export { parseHTML, traverseModel };
