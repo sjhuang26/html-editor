@@ -1,17 +1,20 @@
 <template>
   <div>
-    <p>Hello world!</p>
-    <HelloWorld></HelloWorld>
+    <h1>Easy HTML Editor</h1>
+    <CodePanel></CodePanel>
+    <ExplanationPanel></ExplanationPanel>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import CodePanel from './components/CodePanel';
+import ExplanationPanel from './components/ExplanationPanel';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    CodePanel,
+    ExplanationPanel
   }
 };
 </script>
