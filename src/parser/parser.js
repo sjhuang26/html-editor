@@ -6,37 +6,78 @@ function parseHTMLRecursive(html, start, outerTag, depth) {
   logVerboseParse('recursive', '..'.repeat(depth), html.substring(start), outerTag);
   let result = [];
   let state = 'text';
-  let tokenBegin = -1;
-  let tagName = '';
+  let textBegin = -1;
+  let tagNameBegin = -1;
+  let attributeNameBegin = -1;
+  let attributeNameEnd = -1;
+  let attributeValueBegin = -1;
+  let attributes = [];
+  let tagNameEnd = -1;
+  let lastState = 'none';
   let i = start;
   for (; i < html.length; i++) {
     const x = html[i];
-    if (tokenBegin === -1) {
-      tokenBegin = i;
-    }
+    const currentState = state;
     if (state === 'text') {
+      if (lastState !== 'text') textBegin = i;
       if (x === '<') {
-        state = 'tag';
-        tagName = '';
-        if (tokenBegin < i) {
+        state = 'tag name';
+        if (textBegin < i) {
           result.push({
             type: 'text',
-            start: tokenBegin,
+            start: textBegin,
             end: i,
-            content: html.substring(tokenBegin, i)
+            content: html.substring(textBegin, i)
           });
         }
       }
-    } else if (state === 'tag') {
+    } else if (state === 'tag name') {
+      if (lastState !== 'tag name') {
+        tagNameBegin = i;
+        attributes = [];
+      }
       if (x === '>') {
         state = 'inside tag';
-        tokenBegin = -1;
-      } else {
-        tagName += x;
+        tagNameEnd = i;
+      } else if (x === ' ') {
+        state = 'attribute name';
+        tagNameEnd = i;
+      }
+    } else if (state === 'attribute name') {
+      if (lastState !== 'attribute name') attributeNameBegin = i;
+      if (x === '=') {
+        state = 'attribute value block';
+        attributeNameEnd = i;
+      }
+    } else if (state === 'attribute value block') {
+      if (x === '"') {
+        state = 'attribute value';
+      }
+    } else if (state === 'attribute value') {
+      if (lastState !== 'attribute value') attributeValueBegin = i;
+      if (x === '"') {
+        state = 'more attributes';
+        const attributeValueEnd = i;
+        const attributeName = html.substring(attributeNameBegin, attributeNameEnd);
+        const attributeValue = html.substring(attributeValueBegin, attributeValueEnd);
+        attributes.push({
+          name: attributeName,
+          nameStart: attributeNameBegin,
+          nameEnd: attributeNameEnd,
+          value: attributeValue,
+          valueStart: attributeValueBegin,
+          valueEnd: attributeValueEnd
+        });
+      }
+    } else if (state === 'more attributes') {
+      if (x === ' ') {
+        state = 'attribute name';
+      } else if (x === '>') {
+        state = 'inside tag';
       }
     } else if (state === 'inside tag') {
       state = 'text';
-      tokenBegin = -1;
+      const tagName = html.substring(tagNameBegin, tagNameEnd);
       if (outerTag !== null && tagName === '/' + outerTag) {
         break;
       } else {
@@ -44,13 +85,17 @@ function parseHTMLRecursive(html, start, outerTag, depth) {
         result.push({
           type: 'tag',
           name: tagName,
+          nameStart: tagNameBegin,
+          nameEnd: tagNameEnd,
           start: start,
           end: recursiveResult.newPosition,
-          children: recursiveResult.result
+          children: recursiveResult.result,
+          attributes: attributes
         });
         i = recursiveResult.newPosition - 1;
       }
     }
+    lastState = currentState;
   }
   const x = {
     newPosition: i,

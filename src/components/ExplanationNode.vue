@@ -3,7 +3,8 @@
     <pre class="explanation-node-text" v-if="node.type === 'text'" :title="getInlineTextHelp()">{{ node.content }}</pre>
     <div v-else>
       <div class="explanation-node-tag" :title="getInlineTagHelp(node.name)">
-        &lt;<pre class="explanation-node-tag-name">{{ node.name }}</pre>&gt;
+        &lt;<pre class="explanation-node-tag-name">{{ node.name }}</pre>
+        <pre v-for="attribute of node.attributes" :key="'attribute-' + attribute.name + '=' + attribute.value">{{ ' ' + attribute.name + '=' + attribute.value }}</pre>&gt;
       </div>
       <ExplanationNode
         v-for="(child, index) in node.children"
@@ -70,7 +71,7 @@ export default {
 <style scoped>
 .explanation-node {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 2rem;
+  font-size: 1rem;
   transition: background-color 0.1s;
 }
 .explanation-node-text {
