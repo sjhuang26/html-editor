@@ -1,3 +1,4 @@
+<!-- a panel that contains sample HTML elements to add to the code -->
 <template>
   <div>
     <h3>Add something</h3>

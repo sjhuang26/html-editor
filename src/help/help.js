@@ -1,3 +1,7 @@
+/*
+Contains strings used in help messages.
+*/
+
 const tagHelp = {
   html: {
     title: 'html',

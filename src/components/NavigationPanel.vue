@@ -1,3 +1,4 @@
+<!-- a panel that contains toggle buttons to show/hide other panels -->
 <template>
   <div>
     <button @click="toggle('code')">Code</button>
@@ -16,7 +17,9 @@ export default {
     ...mapActions([
       'updateVisiblePanels'
     ]),
+    // toggle the visibility of a single panel
     toggle(panelName) {
+      // this code manipulates an array containing names of all the visible panels
       if (this.visiblePanels.includes(panelName)) {
         // remove panel
         this.updateVisiblePanels(this.visiblePanels.filter((value) => (value !== panelName)));

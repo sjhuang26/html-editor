@@ -1,11 +1,17 @@
+<!-- a node in the explanation panel -->
 <template>
+  <!-- whitespace is particularly important here, so this code is a mess -->
   <div class="explanation-node" ref="explanationNode" :class="{ 'explanation-node-selected': isSelected}">
     <pre class="explanation-node-text" v-if="node.type === 'text'" :title="getInlineTextHelp()">{{ node.content }}</pre>
     <div v-else>
       <div class="explanation-node-tag" :title="getInlineTagHelp(node.name)">
         &lt;<pre class="explanation-node-tag-name">{{ node.name }}</pre>
-        <pre v-for="attribute of node.attributes" :key="'attribute-' + attribute.name + '=' + attribute.value">{{ ' ' + attribute.name + '=' + attribute.value }}</pre>&gt;
+        <pre
+          v-for="attribute of node.attributes"
+          :key="'attribute-' + attribute.name + '=' + attribute.value"
+        >{{ ' ' + attribute.name + '=' + attribute.value }}</pre>&gt;
       </div>
+      <!-- recursive component!! ExplanationNode inside ExplanationNode -->
       <ExplanationNode
         v-for="(child, index) in node.children"
         :key="'explanation-node-' + JSON.stringify(position.concat(index))"
@@ -56,6 +62,7 @@ export default {
   },
   mounted() {
     const node = this.$refs.explanationNode;
+    // jQuery hacks to make hover and click work properly
     $(node).on('mouseover mouseout', (e) => {
       $(node).toggleClass('explanation-node-hovered', e.type ==='mouseover');
       e.stopPropagation();

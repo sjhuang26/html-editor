@@ -1,3 +1,4 @@
+<!-- a panel that contains the heading -->
 <template>
   <div>
     <h1>Easy HTML Editor</h1>

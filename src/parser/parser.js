@@ -1,3 +1,11 @@
+/*
+Contains all the HTML parsing functionality.
+*/
+
+/*
+Input: HTML string
+Output: a model
+*/
 function parseHTML(html) {
   return parseHTMLRecursive(html, 0, null, 0).result;
 }
@@ -105,6 +113,10 @@ function parseHTMLRecursive(html, start, outerTag, depth) {
   return x;
 }
 
+/*
+Input: a model and position array
+Output: the node referenced by the position, or null if it doesn't exist
+*/
 function traverseModel(model, position) {
   if (position.length === 0) {
     return null;

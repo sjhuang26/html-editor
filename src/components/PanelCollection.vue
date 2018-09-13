@@ -1,3 +1,4 @@
+<!-- contains, controls, and toggles the visibility of all the panels -->
 <template>
   <div class="panel-collection">
     <div class="header">

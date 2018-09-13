@@ -1,3 +1,4 @@
+<!-- a panel that contains a textbox where code can be entered -->
 <template>
   <div class="code-panel">
     <textarea class="code-input" :value="code" @input="updateCode($event.target.value)">

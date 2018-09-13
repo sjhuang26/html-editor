@@ -1,3 +1,4 @@
+<!-- basically an IFRAME used in the website panel with point-and-click selection functionality -->
 <template>
   <div>
     <iframe class="sandbox" ref="iframe">
@@ -27,10 +28,13 @@ export default {
   },
   methods: {
     updateIframe() {
+      // get the IFRAME "window" object
       const child = this.$refs.iframe.contentWindow;
+      
       const childDoc = child.document;
       const $c = $(childDoc);
 
+      // write the raw content
       childDoc.open('text/html', 'replace');
       childDoc.write(this.content);
       childDoc.close();

@@ -1,5 +1,7 @@
+<!-- the root node of the explanation panel -->
 <template>
   <span>
+    <!-- basically a bunch of ExplanationNode components concatenated together -->
     <ExplanationNode
       v-for="(node, index) in nodes"
       :key="'explanation-node-' + JSON.stringify(position.concat(index))"

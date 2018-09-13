@@ -1,3 +1,4 @@
+<!-- a panel that contains help information about the current selection -->
 <template>
   <div>
     <div v-if="selectionModel === null">
@@ -33,6 +34,7 @@ export default {
     ])
   },
   created() {
+    // a common hack to transfer imported variables to Vue variables
     this.tagHelp = tagHelp;
   }
 };

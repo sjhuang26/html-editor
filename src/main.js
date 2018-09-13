@@ -1,3 +1,7 @@
+/*
+The entrypoint JS file of the app, which is basically configuration
+*/
+
 import Vue from 'vue';
 import Vuex from 'vuex';
 

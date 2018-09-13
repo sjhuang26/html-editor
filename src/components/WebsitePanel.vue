@@ -1,3 +1,4 @@
+<!-- a panel that contains the website produced by the HTML code -->
 <template>
   <div>
     <Sandbox :content="code" />

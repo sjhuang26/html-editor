@@ -1,3 +1,4 @@
+<!-- the entrypoint of the app -->
 <template>
   <div class="app">
     <PanelCollection />

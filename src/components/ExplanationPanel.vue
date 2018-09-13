@@ -1,3 +1,4 @@
+<!-- a panel that contains a visual and interactive representation of the code -->
 <template>
   <div class="explanation-panel">
     <ExplanationNodeRoot :nodes="codeModel" :position="[]"/>
@@ -7,14 +8,12 @@
 <script>
 import { mapGetters } from 'vuex';
 
-//import ExplanationNode from './ExplanationNode';
 import ExplanationNodeRoot from './ExplanationNodeRoot';
 
 export default {
   name: 'ExplanationPanel',
   components: {
     ExplanationNodeRoot,
-    //ExplanationNode
   },
   computed: {
     ...mapGetters([
