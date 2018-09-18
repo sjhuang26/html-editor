@@ -1,11 +1,12 @@
 <!-- a panel that contains toggle buttons to show/hide other panels -->
 <template>
   <div>
-    <button @click="toggle('code')">Code</button>
-    <button @click="toggle('explanation')">Explanation</button>
-    <button @click="toggle('website')">Website</button>
-    <button @click="toggle('selection')">Selection</button>
-    <button @click="toggle('toolbox')">Toolbox</button>
+    <b-button class="btn" variant="success" @click="toggle('code')">Code</b-button>
+    <b-button class="btn" variant="info" @click="toggle('explanation')">Explanation</b-button>
+    <b-button class="btn" variant="warning" @click="toggle('website')">Website</b-button>
+    <b-button class="btn" variant="primary" @click="toggle('selection')">Selection</b-button>
+    <b-button class="btn" variant="danger" @click="toggle('toolbox')">Toolbox</b-button>
+    <b-button class="btn" variant="link">Link(in progress)</b-button>
   </div>
 </template>
 
@@ -36,3 +37,11 @@ export default {
   }
 };
 </script>
+
+<style>
+  .btn
+  {
+    margin-right: 16px;
+    margin-bottom: 6px !important;
+  }
+</style>
