@@ -2,8 +2,8 @@
 <template>
   <div>
     <h3>Add something</h3>
-    <button @click="addTag('p')">Paragraph</button>
-    <button @click="addTag('h1')">Header</button>
+    <b-button class="btn" @click="addTag('p')">Paragraph</b-button>
+    <b-button class="btn" @click="addTag('h1')">Header</b-button>
   </div>
 </template>
 
