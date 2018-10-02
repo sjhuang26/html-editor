@@ -1,7 +1,7 @@
 <!-- the entrypoint of the app -->
 <template>
   <div class="app">
-    <PanelCollection />
+    <PanelCollection class="h-100" />
   </div>
 </template>
 
@@ -19,5 +19,6 @@ export default {
 <style scoped>
 .app {
   font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
 }
 </style>

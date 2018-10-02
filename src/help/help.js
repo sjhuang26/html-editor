@@ -25,13 +25,13 @@ const tagHelp = {
   }
 };
 
-const inlineTextHelp = 'text (not a tag)';
+const inlineTextHelp = 'text';
 
 function getInlineTagHelp(tagName) {
   if (tagHelp[tagName] === undefined) {
-    return 'no help available';
+    return 'tag unknown; no help available';
   } else {
-    return tagHelp[tagName].title + ': ' + tagHelp[tagName].description;
+    return tagName + ': ' + tagHelp[tagName].description;
   }
 }
 
