@@ -1,6 +1,6 @@
 <!-- the root node of the explanation panel -->
 <template>
-  <span>
+  <div class="explanation-node-root">
     <!-- basically a bunch of ExplanationNode components concatenated together -->
     <ExplanationNode
       v-for="(node, index) in nodes"
@@ -9,8 +9,9 @@
       :node="node"
       :selection="selection"
       @selection="updateSelection"
+      
     />
-  </span>
+  </div>
 </template>
 
 <script>
@@ -45,3 +46,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.explanation-node-root {
+  cursor: default;
+}
+</style>

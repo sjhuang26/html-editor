@@ -1,19 +1,21 @@
 <!-- a panel that contains the website produced by the HTML code -->
 <template>
-  <div>
+  <CollapsiblePanel panelName="website">
     <Sandbox :content="code" />
-  </div>
+  </CollapsiblePanel>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 
 import Sandbox from './Sandbox';
+import CollapsiblePanel from './CollapsiblePanel';
 
 export default {
   name: 'WebsitePanel',
   components: {
-    Sandbox
+    Sandbox,
+    CollapsiblePanel
   },
   computed: {
     ...mapState([

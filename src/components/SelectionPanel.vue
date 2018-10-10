@@ -1,29 +1,45 @@
 <!-- a panel that contains help information about the current selection -->
 <template>
-  <div>
+  <CollapsiblePanel panelName="selection">
     <div v-if="selectionModel === null">
       <p>Nothing selected</p>
     </div>
     <div v-else-if="selectionModel.type === 'text'">
-      <h3>Text</h3>
-      <p>Content: <pre>{{ selectionModel.content }}</pre></p>
+      <p class="lead">Text</p>
+      <pre>{{ selectionModel.content }}</pre>
     </div>
     <div v-else>
-      <h3>Tag</h3>
-      <p>Name: <pre>{{ selectionModel.name }}</pre></p>
-      <p>{{ tagHelp[selectionModel.name].title }}</p>
+      <p class="lead">{{ selectionModel.name }}</p>
       <p>{{ tagHelp[selectionModel.name].description }}</p>
+      <table v-if="selectionModel.attributes.length > 0" class="table">
+        <thead>
+          <tr>
+            <th>Attribute name</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(attr, index) of selectionModel.attributes" :key="'selection-attribute-' + index">
+            <td>{{ attr.name }}</td>
+            <td>{{ attr.value }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
+  </CollapsiblePanel>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex';
 
 import { tagHelp } from '../help/help';
+import CollapsiblePanel from './CollapsiblePanel';
 
 export default {
   name: 'SelectionPanel',
+  components: {
+    CollapsiblePanel
+  },
   computed: {
     ...mapState([
       'selection'
