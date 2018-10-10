@@ -1,27 +1,42 @@
 <!-- a node in the explanation panel -->
 <template>
   <!-- whitespace is particularly important here, so this code is a mess -->
-  <div class="explanation-node" ref="explanationNode" :class="{ 'explanation-node-selected': isSelected}">
-    <pre class="explanation-node-text" v-if="node.type === 'text'" :title="getInlineTextHelp()">{{ node.content }}</pre>
+  <div
+    class="explanation-node"
+    ref="explanationNode"
+    :class="{ 'explanation-node-selected': isSelected }"
+  >
+    <div
+      class="explanation-node-text"
+      v-if="node.type === 'text'"
+      v-b-tooltip.hover="getInlineTextHelp()"
+    >{{ node.content }}</div>
     <div v-else>
-      <div class="explanation-node-tag" :title="getInlineTagHelp(node.name)">
-        &lt;<pre class="explanation-node-tag-name">{{ node.name }}</pre>
-        <pre
+      <div class="explanation-node-tag"
+        v-b-tooltip.hover="getInlineTagHelp(node.name)"
+      >
+        &lt;<span class="explanation-node-tag-name">{{ node.name }}</span>
+        <span
           v-for="attribute of node.attributes"
           :key="'attribute-' + attribute.name + '=' + attribute.value"
-        >{{ ' ' + attribute.name + '=' + attribute.value }}</pre>&gt;
+        >{{ ' ' + attribute.name + '=' + attribute.value }}</span>&gt;
       </div>
       <!-- recursive component!! ExplanationNode inside ExplanationNode -->
-      <ExplanationNode
-        v-for="(child, index) in node.children"
-        :key="'explanation-node-' + JSON.stringify(position.concat(index))"
-        :node="child"
-        :position="position.concat(index)"
-        :selection="selection"
-        @selection="handleSelection"
-      />
-      <div class="explanation-node-tag" :title="getInlineTagHelp(node.name)">
-        &lt;/<pre class="explanation-node-tag-name">{{ node.name }}</pre>&gt;
+      <div style="padding-left: 10px; border-left: 2px solid black">
+        <ExplanationNode
+          v-for="(child, index) in node.children"
+          :key="'explanation-node-' + JSON.stringify(position.concat(index))"
+          :node="child"
+          :position="position.concat(index)"
+          :selection="selection"
+          @selection="handleSelection"
+        />
+      </div>
+      <div
+        class="explanation-node-tag"
+        v-b-tooltip.hover="getInlineTagHelp(node.name)"
+      >
+        &lt;/<span class="explanation-node-tag-name">{{ node.name }}</span>&gt;
       </div>
     </div>
   </div>
@@ -96,8 +111,5 @@ export default {
 .explanation-node-hovered,
 .explanation-node-hovered .explanation-node-selected {
   background-color: #0EE;
-}
-div, pre {
-  display: inline;
 }
 </style>

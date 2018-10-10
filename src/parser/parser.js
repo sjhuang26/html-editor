@@ -113,6 +113,85 @@ function parseHTMLRecursive(html, start, outerTag, depth) {
   return x;
 }
 
+function parseCssSelector(css) {
+  let result = css.split(',').map((a) => a.trim()).map((selector) => {
+    let result = selector
+    .split(' ')
+    .map((a) => a.trim())
+    .filter((a) => a.length > 0)
+    .map((selectorToken) => {
+      let result = {};
+      let x = selectorToken[0];
+      if (x === '#') {
+        result.type = 'id';
+        result.content = selectorToken.substring(1);
+      } else if (x === '.') {
+        result.type = 'class';
+        result.content = selectorToken.substring(1);
+      } else {
+        result.type = 'tag';
+        result.content = selectorToken;
+      }
+      return result;
+    });
+    let paddedResult = [];
+    for (let i = 0; i < result.length; i++) {
+      paddedResult.push(result[i]);
+      if (i !== result.length - 1) {
+        paddedResult.push({
+          type: 'descendant'
+        });
+      }
+    }
+    return paddedResult;
+  });
+  return result;
+}
+
+/*
+Input: a CSS string
+Output: the CSS model
+function parseCSS(css) {
+  let rules = [];
+  let rule = null;
+  let selector = null;
+  let state = 'before selector';
+  let lastState = 'none';
+  let i = 0;
+  for (; i < css.length; i++) {
+    const x = css[i];
+    const currentState = state;
+    if (state === 'before rule') {
+      if (!/\s/.test(x)) { // not whitespace?
+        state = 'begin selector group';
+        rule = {
+          selectors: [],
+          declarations: []
+        };
+      }
+    }
+
+    if (state === 'begin selector group') {
+      if (x === '.') { // class
+        state = 'selector token content';
+        currentSelectorToken.type = 'class';
+      } else if (x === '#') { // id
+        state = 'selector token content';
+        currentSelectorToken.type = 'id';
+      } else {
+        state = 'selector token content';
+        currentSelectorToken.type = 'tag';
+      }
+    } else if (state === 'selector token content') {
+      if (x === '.') { // class
+        
+      } else if (x === ' ') {
+
+      }
+    }
+  }
+}*/
+
 /*
 Input: a model and position array
 Output: the node referenced by the position, or null if it doesn't exist
@@ -141,4 +220,4 @@ function logVerboseParse() {
   // do nothing
 }
 
-export { parseHTML, traverseModel };
+export { parseHTML, traverseModel, parseCssSelector };
