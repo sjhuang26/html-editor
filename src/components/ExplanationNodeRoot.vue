@@ -9,7 +9,7 @@
       :node="node"
       :selection="selection"
       @selection="updateSelection"
-      
+
     />
   </div>
 </template>
