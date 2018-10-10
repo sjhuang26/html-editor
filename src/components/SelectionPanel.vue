@@ -24,6 +24,12 @@ import { tagHelp } from '../help/help';
 
 export default {
   name: 'SelectionPanel',
+    props: {
+        name: {
+            title: 'Selection',
+            description: "TODO"
+        }
+    },
   computed: {
     ...mapState([
       'selection'

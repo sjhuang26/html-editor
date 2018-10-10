@@ -12,6 +12,12 @@ import ExplanationNodeRoot from './ExplanationNodeRoot';
 
 export default {
   name: 'ExplanationPanel',
+    props: {
+        name: {
+            title: 'Explanation',
+            description: "TODO"
+        }
+    },
   components: {
     ExplanationNodeRoot,
   },

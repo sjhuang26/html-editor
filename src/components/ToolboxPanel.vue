@@ -12,6 +12,11 @@ import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'ToolboxPanel',
+    props: {
+      name: {
+          title: 'Toolbox',
+      }
+    },
   methods: {
     ...mapActions([
       'updateCode'

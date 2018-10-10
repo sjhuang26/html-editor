@@ -8,6 +8,12 @@
 
 <script>
 export default {
-  name: 'HeadingPanel'
+  name: 'HeadingPanel',
+    props: {
+        name: {
+            title: 'Heading',
+            description: "TODO"
+        }
+    },
 };
 </script>

@@ -12,6 +12,11 @@ import Sandbox from './Sandbox';
 
 export default {
   name: 'WebsitePanel',
+    props: {
+        name: {
+            title: 'Website',
+        }
+    },
   components: {
     Sandbox
   },

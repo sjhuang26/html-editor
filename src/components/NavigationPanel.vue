@@ -14,6 +14,12 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
+    props: {
+        name: {
+            title: 'Navigation',
+            description: "TODO"
+        }
+    },
   methods: {
     ...mapActions([
       'updateVisiblePanels'

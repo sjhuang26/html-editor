@@ -11,6 +11,12 @@ import { mapGetters, mapActions, mapState } from 'vuex';
 
 export default {
   name: 'CodePanel',
+    props: {
+      name: {
+        title: 'CODE',
+        description: "TODO"
+      }
+    },
   methods: {
     ...mapActions([
       'updateCode'
