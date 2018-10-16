@@ -18,9 +18,9 @@ import SelectionPanel from './SelectionPanel';
 export default {
   name: 'ExplanationPanel',
     props: {
-        name: {
-            title: 'Explanation',
-            description: "TODO"
+      name: {
+          title: 'Explanation',
+          description: "TODO"
         }
     },
   components: {
