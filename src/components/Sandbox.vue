@@ -53,10 +53,6 @@ export default {
 
       // INJECT CSS
       const injectedCSS = `
-      * {
-        min-height: 20px !important;
-        outline: 3px solid #DDD !important;
-      }
       `;
       $c.find('head').append($('<style>').text(injectedCSS));
 

@@ -6,6 +6,7 @@
     <PanelToggleButton panelName="website" class="nav-toggle-button" />
     <PanelToggleButton panelName="selection" class="nav-toggle-button" />
     <PanelToggleButton panelName="toolbox" class="nav-toggle-button" />
+    <PanelToggleButton panelName="css" class="nav-toggle-button" />
   </div>
 </template>
 

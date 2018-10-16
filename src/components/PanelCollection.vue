@@ -6,18 +6,13 @@
       <NavigationPanel />
     </div>
     <div class="body container-fluid">
-      <div class="row body-row">
-        <div class="col body-column">
-          <ToolboxPanel class="body-panel" />
-        </div>
-        <div class="col body-column">
-          <CodePanel class="body-panel" />
-        </div>
-        <div class="col body-column">
-          <ExplanationPanel class="body-panel" />
-          <WebsitePanel class="body-panel" />
-          <SelectionPanel class="body-panel" />
-        </div>
+      <div class="body-row">
+        <ToolboxPanel class="body-panel" />
+        <CodePanel class="body-panel" />
+        <ExplanationPanel class="body-panel" />
+        <WebsitePanel class="body-panel" />
+        <SelectionPanel class="body-panel" />
+        <CssPanel class="body-panel" />
       </div>
     </div>
   </div>
@@ -34,6 +29,7 @@ import NavigationPanel from './NavigationPanel';
 import WebsitePanel from './WebsitePanel';
 import SelectionPanel from './SelectionPanel';
 import ToolboxPanel from './ToolboxPanel';
+import CssPanel from './CssPanel';
 
 export default {
   name: 'PanelCollection',
@@ -44,7 +40,8 @@ export default {
     NavigationPanel,
     WebsitePanel,
     SelectionPanel,
-    ToolboxPanel
+    ToolboxPanel,
+    CssPanel
   },
   methods: {
     isPanelVisible(panelName) {
@@ -73,9 +70,11 @@ export default {
 }
 .body-row {
   flex: 1;
+  display: flex;
 }
 .body-column {
   flex: 1;
+  width: 0;
   display: flex;
   flex-flow: column;
 }

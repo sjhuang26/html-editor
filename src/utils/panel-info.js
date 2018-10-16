@@ -19,5 +19,8 @@ export const panelInfo = {
   },
   navigation: {
     title: 'Navigation'
+  },
+  css: {
+    title: 'CSS'
   }
 };
