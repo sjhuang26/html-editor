@@ -2,9 +2,6 @@
 <template>
   <CollapsiblePanel panelName="code">
     <div class="d-flex flex-column h-100">
-      <p>A CSS <b><i>selector</i></b></p>
-      <input type="text" class="form-control" :value="cssCode" @input="updateCssCode($event.target.value)"/>
-      <p>HTML</p>
       <Codemirror :value="code" @input="updateCode" :options="codemirrorOptions"></Codemirror>
     </div>
   </CollapsiblePanel>
@@ -38,21 +35,20 @@ export default {
             }
         }
     },
-    methods: {
-        ...mapActions([
-            'updateCode',
-            'updateCssCode'
-        ])
-    },
-    computed: {
-        ...mapState([
-            'code',
-            'cssCode'
-        ]),
-        ...mapGetters([
-            'codeModel'
-        ])
-    }
+  },
+  methods: {
+    ...mapActions([
+      'updateCode'
+    ])
+  },
+  computed: {
+    ...mapState([
+      'code'
+    ]),
+    ...mapGetters([
+      'codeModel'
+    ])
+  }
 };
 </script>
 

@@ -12,13 +12,13 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     // the HTML code
-    code: '<html><body><p>Hello world!</p><a href="https://example.com">Link</a></body></html>',
+    code: `<html>\n<body>\n<p>Hello world!</p>\n<a href="https://example.com">Link</a>\n</body>\n</html>`,
 
     // the CSS selector code
     cssCode: 'p, .abc',
 
     // an array of names of visible panels
-    visiblePanels: ['heading', 'navigation', 'explanation', 'website', 'code', 'selection', 'toolbox'],
+    visiblePanels: ['heading', 'navigation', 'explanation', 'website', 'code', 'selection', 'toolbox', 'css'],
 
     // a position array of the current selection
     selection: []
@@ -53,8 +53,9 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    updateCode({ commit }, newCode) {
+    updateCode({ commit, dispatch }, newCode) {
       commit('setCode', newCode);
+      dispatch('updateSelection', []);
     },
     updateCssCode({ commit }, newCode) {
       commit('setCssCode', newCode);

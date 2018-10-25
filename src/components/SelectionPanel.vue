@@ -10,7 +10,7 @@
     </div>
     <div v-else>
       <p class="lead">{{ selectionModel.name }}</p>
-      <p>{{ tagHelp[selectionModel.name].description }}</p>
+      <p>{{ tags[selectionModel.name].description }}</p>
       <table v-if="selectionModel.attributes.length > 0" class="table">
         <thead>
           <tr>
@@ -32,7 +32,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex';
 
-import { tagHelp } from '../help/help';
+import { tags } from '../help/help';
 import CollapsiblePanel from './CollapsiblePanel';
 
 export default {
@@ -57,7 +57,7 @@ export default {
   },
   created() {
     // a common hack to transfer imported variables to Vue variables
-    this.tagHelp = tagHelp;
+    this.tags = tags;
   }
 };
 </script>

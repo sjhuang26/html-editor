@@ -1,11 +1,12 @@
 <!-- a panel that contains toggle buttons to show/hide other panels -->
 <template>
   <div>
-    <PanelToggleButton panelName="code" class="nav-toggle-button"/>
-    <PanelToggleButton panelName="explanation" class="nav-toggle-button"/>
-    <PanelToggleButton panelName="website" class="nav-toggle-button"/>
-    <PanelToggleButton panelName="selection" class="nav-toggle-button"/>
-    <PanelToggleButton panelName="toolbox" class="nav-toggle-button"/>
+    <PanelToggleButton panelName="code" class="nav-toggle-button" />
+    <PanelToggleButton panelName="explanation" class="nav-toggle-button" />
+    <PanelToggleButton panelName="website" class="nav-toggle-button" />
+    <PanelToggleButton panelName="selection" class="nav-toggle-button" />
+    <PanelToggleButton panelName="toolbox" class="nav-toggle-button" />
+    <PanelToggleButton panelName="css" class="nav-toggle-button" />
   </div>
 </template>
 
