@@ -39,6 +39,7 @@
 </template>
 
 <script>
+
 import { mapState, mapActions } from 'vuex';
 
 import CollapsiblePanel from './CollapsiblePanel';
@@ -46,6 +47,11 @@ import { tags, tutorial } from '../help/help';
 
 export default {
   name: 'ToolboxPanel',
+  props: {
+    name: {
+      title: 'Toolbox',
+    }
+  },
   components: {
     CollapsiblePanel
   },

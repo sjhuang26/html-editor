@@ -15,6 +15,12 @@ import SelectionPanel from './SelectionPanel';
 
 export default {
   name: 'ExplanationPanel',
+    props: {
+      name: {
+          title: 'Explanation',
+          description: "TODO"
+        }
+    },
   components: {
     ExplanationNodeRoot,
     CollapsiblePanel,

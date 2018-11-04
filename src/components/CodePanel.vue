@@ -11,25 +11,30 @@
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 import 'codemirror/mode/htmlmixed/htmlmixed';
-
-import { codemirror as Codemirror } from 'vue-codemirror';
-import { mapGetters, mapActions, mapState } from 'vuex';
-
+import {codemirror as Codemirror} from 'vue-codemirror';
+import {mapGetters, mapActions, mapState} from 'vuex';
 import CollapsiblePanel from './CollapsiblePanel';
 
 export default {
-  name: 'CodePanel',
-  components: {
-    CollapsiblePanel,
-    Codemirror
-  },
-  data() {
-    return {
-      codemirrorOptions: {
-        mode: 'text/html',
-        theme: 'monokai'
-      }
-    }
+    name: 'CodePanel',
+    props: {
+        name: {
+            title: 'Code',
+            description: "TODO"
+        }
+    },
+    components: {
+        CollapsiblePanel,
+        Codemirror
+    },
+    data() {
+        return {
+            codemirrorOptions: {
+                mode: 'text/html',
+                theme: 'monokai'
+            }
+        }
+    },
   },
   methods: {
     ...mapActions([
@@ -48,9 +53,9 @@ export default {
 </script>
 
 <style scoped>
-.code-input {
-  resize: none;
-  height: 100%;
-  flex: 1;
-}
+  .code-input {
+    resize: none;
+    height: 100%;
+    flex: 1;
+  }
 </style>

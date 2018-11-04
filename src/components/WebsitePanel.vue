@@ -13,6 +13,11 @@ import CollapsiblePanel from './CollapsiblePanel';
 
 export default {
   name: 'WebsitePanel',
+    props: {
+        name: {
+            title: 'Website',
+        }
+    },
   components: {
     Sandbox,
     CollapsiblePanel

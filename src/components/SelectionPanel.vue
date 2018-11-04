@@ -37,6 +37,12 @@ import CollapsiblePanel from './CollapsiblePanel';
 
 export default {
   name: 'SelectionPanel',
+    props: {
+        name: {
+            title: 'Selection',
+            description: "TODO"
+        }
+    },
   components: {
     CollapsiblePanel
   },

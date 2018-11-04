@@ -14,14 +14,20 @@
 import PanelToggleButton from './PanelToggleButton';
 
 export default {
-  components: {
-    PanelToggleButton
-  }
+    props: {
+        name: {
+            title: 'Navigation',
+            description: "TODO"
+        }
+    },
+    components: {
+        PanelToggleButton
+    }
 };
 </script>
 
 <style scoped>
-.nav-toggle-button {
-  margin: 0 10px;
-}
+  .nav-toggle-button {
+    margin: 0 10px;
+  }
 </style>
