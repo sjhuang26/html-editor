@@ -1,6 +1,6 @@
 <!-- a panel that contains help information about the current selection -->
 <template>
-  <CollapsiblePanel panelName="selection">
+  <div>
     <div v-if="selectionModel === null">
       <p>Nothing selected</p>
     </div>
@@ -26,25 +26,21 @@
         </tbody>
       </table>
     </div>
-  </CollapsiblePanel>
+  </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex';
 
 import { tags } from '../help/help';
-import CollapsiblePanel from './CollapsiblePanel';
 
 export default {
   name: 'SelectionPanel',
-    props: {
-        name: {
-            title: 'Selection',
-            description: "TODO"
-        }
-    },
-  components: {
-    CollapsiblePanel
+  props: {
+    name: {
+      title: 'Selection',
+      description: "TODO"
+    }
   },
   computed: {
     ...mapState([

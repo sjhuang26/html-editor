@@ -1,7 +1,7 @@
 <!-- basically an IFRAME used in the website panel with point-and-click selection functionality -->
 <template>
-  <div>
-    <iframe class="sandbox" ref="iframe">
+  <div class="v-layout sandbox">
+    <iframe class="sandbox-iframe" ref="iframe">
     </iframe>
   </div>
 </template>
@@ -92,12 +92,16 @@ export default {
 </script>
 
 <style scoped>
-.sandbox {
+.sandbox-iframe {
   border: none;
   outline: none;
+  overflow: auto;
   margin: 0;
   padding: 0;
-  overflow: auto;
   width: 100%;
+  height: 100%;
+}
+.sandbox {
+  outline: 3px solid #EEE;
 }
 </style>

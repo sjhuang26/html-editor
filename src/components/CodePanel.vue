@@ -1,10 +1,12 @@
 <!-- a panel that contains a textbox where code can be entered -->
 <template>
-  <CollapsiblePanel panelName="code">
-    <div class="d-flex flex-column h-100">
-      <Codemirror :value="code" @input="updateCode" :options="codemirrorOptions"></Codemirror>
-    </div>
-  </CollapsiblePanel>
+  <div>
+    <Codemirror
+      class="code-input"
+      :value="code"
+      @input="updateCode"
+      :options="codemirrorOptions" />
+  </div>
 </template>
 
 <script>
@@ -13,7 +15,6 @@ import 'codemirror/theme/monokai.css';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 import {codemirror as Codemirror} from 'vue-codemirror';
 import {mapGetters, mapActions, mapState} from 'vuex';
-import CollapsiblePanel from './CollapsiblePanel';
 
 export default {
   name: 'CodePanel',
@@ -24,7 +25,6 @@ export default {
     }
   },
   components: {
-    CollapsiblePanel,
     Codemirror
   },
   data() {
@@ -52,9 +52,7 @@ export default {
 </script>
 
 <style scoped>
-  .code-input {
-    resize: none;
-    height: 100%;
-    flex: 1;
-  }
+.code-input {
+  height: 100%;
+}
 </style>

@@ -1,6 +1,6 @@
 <!-- a panel that contains sample HTML elements to add to the code -->
 <template>
-  <CollapsiblePanel panelName="toolbox">
+  <div>
     <b-tabs>
       <b-tab title="Tags" active>
         <ul class="list-group">
@@ -15,9 +15,6 @@
             <code>{{ tag.codeSample }}</code>
           </li>
         </ul>
-      </b-tab>
-      <b-tab title="Glossary">
-        <p>Glossary</p>
       </b-tab>
       <b-tab title="Tutorial">
         <div v-for="element of tutorial.elements" :key="'tutorial-element-' + JSON.stringify(element)">
@@ -34,26 +31,34 @@
           </template>
         </div>
       </b-tab>
+      <b-tab title="CSS">
+        <CssPanel />
+      </b-tab>
+      <b-tab title="Current tag">
+        <SelectionPanel />
+      </b-tab>
     </b-tabs>
-  </CollapsiblePanel>
+  </div>
 </template>
 
 <script>
 
 import { mapState, mapActions } from 'vuex';
 
-import CollapsiblePanel from './CollapsiblePanel';
+import CssPanel from './CssPanel';
+import SelectionPanel from './SelectionPanel';
 import { tags, tutorial } from '../help/help';
 
 export default {
-  name: 'ToolboxPanel',
+  name: 'HelpPanel',
   props: {
     name: {
       title: 'Toolbox',
     }
   },
   components: {
-    CollapsiblePanel
+    CssPanel,
+    SelectionPanel
   },
   methods: {
     ...mapActions([

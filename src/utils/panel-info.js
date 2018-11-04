@@ -11,8 +11,8 @@ export const panelInfo = {
   selection: {
     title: 'Selection'
   },
-  toolbox: {
-    title: 'Toolbox'
+  help: {
+    title: 'Help'
   },
   heading: {
     title: 'Heading'

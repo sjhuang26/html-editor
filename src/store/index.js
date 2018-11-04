@@ -17,9 +17,6 @@ export default new Vuex.Store({
     // the CSS selector code
     cssCode: 'p, .abc',
 
-    // an array of names of visible panels
-    visiblePanels: ['heading', 'navigation', 'explanation', 'website', 'code', 'selection', 'toolbox', 'css'],
-
     // a position array of the current selection
     selection: []
   },
@@ -42,9 +39,6 @@ export default new Vuex.Store({
     setCode(state, newCode) {
       state.code = newCode;
     },
-    setVisiblePanels(state, newPanels) {
-      state.visiblePanels = newPanels;
-    },
     setSelection(state, newSelection) {
       state.selection = newSelection;
     },
@@ -60,22 +54,8 @@ export default new Vuex.Store({
     updateCssCode({ commit }, newCode) {
       commit('setCssCode', newCode);
     },
-    updateVisiblePanels({ commit }, newPanels) {
-      commit('setVisiblePanels', newPanels);
-    },
     updateSelection({ commit }, newSelection) {
       commit('setSelection', newSelection);
-    },
-    // toggle the visibility of a single panel
-    togglePanelVisibility({ dispatch, state }, panelName) {
-      // this code manipulates an array containing names of all the visible panels
-      if (state.visiblePanels.includes(panelName)) {
-        // remove panel
-        dispatch('updateVisiblePanels', state.visiblePanels.filter((value) => (value !== panelName)));
-      } else {
-        // add panel
-        dispatch('updateVisiblePanels', state.visiblePanels.concat(panelName));
-      }
     }
   }
 });
