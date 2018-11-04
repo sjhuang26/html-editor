@@ -16,25 +16,24 @@ import {mapGetters, mapActions, mapState} from 'vuex';
 import CollapsiblePanel from './CollapsiblePanel';
 
 export default {
-    name: 'CodePanel',
-    props: {
-        name: {
-            title: 'Code',
-            description: "TODO"
-        }
-    },
-    components: {
-        CollapsiblePanel,
-        Codemirror
-    },
-    data() {
-        return {
-            codemirrorOptions: {
-                mode: 'text/html',
-                theme: 'monokai'
-            }
-        }
-    },
+  name: 'CodePanel',
+  props: {
+    name: {
+      title: 'Code',
+      description: "TODO"
+    }
+  },
+  components: {
+    CollapsiblePanel,
+    Codemirror
+  },
+  data() {
+    return {
+      codemirrorOptions: {
+        mode: 'text/html',
+        theme: 'monokai'
+      }
+    }
   },
   methods: {
     ...mapActions([

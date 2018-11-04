@@ -94,7 +94,7 @@ code: `<html>\n<head></head>\n<body>\n<h1>Welcome!</h1>\n<p>Hi!</p>\n</body>\n</
 text: 'HTML is made of tags, which change what is in them',
 }
 ]
-}
+},
 {
 type: 'card',
 title: 'Basic structure of website',
