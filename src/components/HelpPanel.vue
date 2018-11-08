@@ -2,7 +2,10 @@
 <template>
   <div>
     <b-tabs>
-      <b-tab title="Tags" active>
+      <b-tab title="Welcome" active>
+        <WelcomePanel />
+      </b-tab>
+      <b-tab title="Tags">
         <ul class="list-group">
           <li
             v-for="(tag, tagName) of tags"
@@ -17,19 +20,7 @@
         </ul>
       </b-tab>
       <b-tab title="Tutorial">
-        <div v-for="element of tutorial.elements" :key="'tutorial-element-' + JSON.stringify(element)">
-          <template v-if="element.type === 'card'">
-            <b-card :title="element.title">
-              <b-tabs>
-                <b-tab v-for="(page, index) of element.pages" :key="'tutorial-page-' + JSON.stringify(page)" :title="String(index + 1)">
-                  <p>{{ page.text }}</p>
-                  <pre>{{ page.code }}</pre>
-                  <b-button @click="tutorialTryOut(page.code)">Try it out</b-button>
-                </b-tab>
-              </b-tabs>
-            </b-card>
-          </template>
-        </div>
+        <TutorialPanel />
       </b-tab>
       <b-tab title="CSS">
         <CssPanel />
@@ -43,45 +34,25 @@
 
 <script>
 
-import { mapState, mapActions } from 'vuex';
-
 import CssPanel from './CssPanel';
 import SelectionPanel from './SelectionPanel';
-import { tags, tutorial } from '../help/help';
+import TutorialPanel from './tutorial/TutorialPanel';
+import WelcomePanel from './WelcomePanel';
+
+import { tags } from '../js/help';
 
 export default {
   name: 'HelpPanel',
-  props: {
-    name: {
-      title: 'Toolbox',
-    }
-  },
   components: {
     CssPanel,
-    SelectionPanel
-  },
-  methods: {
-    ...mapActions([
-      'updateCode'
-    ]),
-    addTag(tagName) {
-      const newCode = this.code + `<${tagName}>Stuff</${tagName}>`;
-      this.updateCode(newCode);
-    },
-    tutorialTryOut(code) {
-      this.updateCode(code);
-    }
+    SelectionPanel,
+    TutorialPanel,
+    WelcomePanel
   },
   data() {
     return {
-      tags,
-      tutorial
+      tags
     };
-  },
-  computed: {
-    ...mapState([
-      'code'
-    ])
   }
 };
 </script>

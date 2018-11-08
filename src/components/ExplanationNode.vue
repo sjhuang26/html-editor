@@ -45,7 +45,7 @@
 <script>
 import $ from 'jquery';
 
-import { getInlineTagHelp, getInlineTextHelp } from '../help/help';
+import { getInlineTagHelp, getInlineTextHelp } from '../js/help';
 
 export default {
   name: 'ExplanationNode',

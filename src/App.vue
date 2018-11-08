@@ -30,6 +30,7 @@ export default {
 }
 .h-layout > * {
   flex: 1;
+  min-width: 0;
 }
 .v-layout {
   display: flex;
@@ -38,11 +39,15 @@ export default {
 }
 .v-layout > * {
   flex: 1;
+  min-width: 0;
 }
 .scroll-layout {
   overflow: auto;
 }
 .fixed-scroll-layout {
   overflow: scroll;
+}
+.CodeMirror {
+  font-size: 1.5rem;
 }
 </style>

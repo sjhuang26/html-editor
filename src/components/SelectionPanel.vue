@@ -32,7 +32,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex';
 
-import { tags } from '../help/help';
+import { tags } from '../js/help';
 
 export default {
   name: 'SelectionPanel',

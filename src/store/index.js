@@ -5,7 +5,7 @@ This is a Vuex store.
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { parseHTML, traverseModel, parseCssSelector } from '../parser/parser';
+import { parseHTML, traverseModel, parseCssSelector } from '../js/parser';
 
 Vue.use(Vuex);
 
@@ -18,7 +18,10 @@ export default new Vuex.Store({
     cssCode: 'p, .abc',
 
     // a position array of the current selection
-    selection: []
+    selection: [],
+
+    // for the tutorial panel
+    currentTutorialPageIndex: 0
   },
   getters: {
     // get the code model
@@ -44,6 +47,9 @@ export default new Vuex.Store({
     },
     setCssCode(state, newCode) {
       state.cssCode = newCode;
+    },
+    setCurrentTutorialPage(state, newPageIndex) {
+      state.currentTutorialPageIndex = newPageIndex;
     }
   },
   actions: {
@@ -56,6 +62,9 @@ export default new Vuex.Store({
     },
     updateSelection({ commit }, newSelection) {
       commit('setSelection', newSelection);
+    },
+    changeCurrentTutorialPage({ commit }, newPageIndex) {
+      commit('setCurrentTutorialPage', newPageIndex);
     }
   }
 });

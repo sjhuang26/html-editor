@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { panelInfo } from '../utils/panel-info';
+import { panelInfo } from '../js/panel-info';
 
 export default {
   name: 'CardPanelWrap',

@@ -11,7 +11,7 @@
 
 <script>
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/monokai.css';
+// import 'codemirror/theme/solarized.css';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 import {codemirror as Codemirror} from 'vue-codemirror';
 import {mapGetters, mapActions, mapState} from 'vuex';
@@ -30,8 +30,7 @@ export default {
   data() {
     return {
       codemirrorOptions: {
-        mode: 'text/html',
-        theme: 'monokai'
+        mode: 'text/html'
       }
     }
   },
