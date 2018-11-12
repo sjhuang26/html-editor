@@ -4,7 +4,7 @@
     <div v-for="(page, index) in tutorial.pages" :key="'tutorial-page-' + index" v-show="currentTutorialPageIndex === index">
       <h1>{{ page.title }}</h1>
       <Lesson :markdownContent="page.lessonMarkdownContent" />
-      <Examples :examples="page.examples" />
+      <Examples v-if="page.examples !== undefined" :examples="page.examples" />
     </div>
   </div>
 </template>

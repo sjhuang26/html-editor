@@ -1,0 +1,46 @@
+<template>
+  <div>
+    <div v-show="currentTag === null" v-for="(category, index) of categorizedTags" :key="'reference-tag-category-' + index">
+      <p class="lead">{{ category.name }}</p>
+      <p><small>{{ category.description}}</small></p>
+      <ul class="list-group">
+        <li
+          v-for="tag of category.tags"
+          class="list-group-item d-flex justify-content-between align-items-center"
+          :key="'reference-tag-category-tag-' + tag"
+        >
+          <div>
+            <p>{{ tag }} <TagLevelBadge :level="tags[tag].level" /></p>
+            <p>{{ tags[tag].description }}</p>
+          </div>
+          <button class="btn btn-sm" @click="currentTag = tag">Learn more</button>
+        </li>
+      </ul>
+    </div>
+    <div v-if="currentTag !== null">
+      <button class="btn btn-block btn-primary" @click="currentTag = null">Back</button>
+      <h2>{{ currentTag }}</h2>
+      <p>{{ tags[currentTag].extendedDescription }}</p>
+      <code>{{ tags[currentTag].codeSample }}</code>
+    </div>
+  </div>
+</template>
+
+<script>
+import { tags, categorizedTags } from '../js/help';
+import TagLevelBadge from './TagLevelBadge';
+
+export default {
+  name: 'ReferencePanel',
+  components: {
+    TagLevelBadge
+  },
+  data() {
+    return {
+      tags,
+      categorizedTags,
+      currentTag: null
+    };
+  }
+};
+</script>
