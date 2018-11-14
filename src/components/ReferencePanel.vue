@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-show="currentTag === null" v-for="(category, index) of categorizedTags" :key="'reference-tag-category-' + index">
+  <div class="v-layout">
+    <div v-if="currentTag === null" v-for="(category, index) of categorizedTags" :key="'reference-tag-category-' + index">
       <p class="lead">{{ category.name }}</p>
       <p><small>{{ category.description}}</small></p>
       <ul class="list-group">
@@ -18,23 +18,23 @@
         </li>
       </ul>
     </div>
-    <div v-if="currentTag !== null">
-      <button class="btn btn-block btn-primary" @click="currentTag = null">Back</button>
-      <h2>{{ currentTag }}</h2>
+    <PanelHeaderWrap v-if="currentTag !== null" :title="currentTag" includeBack @backButtonClick="currentTag = null">
       <p>{{ tags[currentTag].extendedDescription }}</p>
       <code>{{ tags[currentTag].codeSample }}</code>
-    </div>
+    </PanelHeaderWrap>
   </div>
 </template>
 
 <script>
 import { tags, categorizedTags } from '../js/help';
 import TagLevelBadge from './TagLevelBadge';
+import PanelHeaderWrap from './PanelHeaderWrap';
 
 export default {
   name: 'ReferencePanel',
   components: {
-    TagLevelBadge
+    TagLevelBadge,
+    PanelHeaderWrap
   },
   data() {
     return {

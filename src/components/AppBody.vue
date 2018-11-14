@@ -6,30 +6,32 @@
       <NavigationPanel />
     </div>
     <div class="body h-layout">
-      <div class="v-layout">
-        <CardPanelWrap :panelTitle="helpPanelTabs[currentHelpPanelTab]" bodyClass="v-layout scroll-layout">
+      <CardPanelWrap>
+        <PanelHeaderWrap
+          :title="helpPanelTabs[currentHelpPanelTab]"
+          bodyClass="v-layout scroll-layout"
+        >
           <HelpPanel />
-        </CardPanelWrap>
-      </div>
-      <CardPanelWrap :panelTitle="isExplanationShown ? 'Explanation' : 'Code'" :bodyClass="'v-layout fixed-scroll-layout' + (isExplanationShown ? '' : ' p-0')">
-        <CodePanel v-show="!isExplanationShown" />
-        <div v-show="isExplanationShown">
-          <ExplanationPanel class="body-column-item" />
-          <SelectionPanel class="body-column-item" />
-        </div>
-        <template slot="header">
-          <div class="btn-group">
-            <button
-              class="btn btn-primary"
-              @click="isExplanationShown = !isExplanationShown"
-            >
-              {{ isExplanationShown ? 'Show code' : 'Show explanation'}}
-            </button>
-          </div>
-        </template>
+        </PanelHeaderWrap>
       </CardPanelWrap>
-      <CardPanelWrap panelName="website" bodyClass="v-layout">
-        <WebsitePanel />
+      <CardPanelWrap>
+        <PanelHeaderWrap
+          :title="isExplanationShown ? 'Explanation' : 'Code'"
+          :rightButton="{text: isExplanationShown ? 'Show code' : 'Show explanation'}"
+          @rightButtonClick="isExplanationShown = !isExplanationShown"
+          :bodyClass="'v-layout fixed-scroll-layout' + (isExplanationShown ? '' : ' p-0')"
+        >
+          <CodePanel v-show="!isExplanationShown" />
+          <div v-show="isExplanationShown">
+            <ExplanationPanel class="body-column-item" />
+            <SelectionPanel class="body-column-item" />
+          </div>
+        </PanelHeaderWrap>
+      </CardPanelWrap>
+      <CardPanelWrap>
+        <PanelHeaderWrap title="Website" bodyClass="v-layout">
+          <WebsitePanel />
+        </PanelHeaderWrap>
       </CardPanelWrap>
     </div>
   </div>
@@ -51,6 +53,7 @@ import CssPanel from './CssPanel';
 import { helpPanelTabs } from '../js/panel-info';
 
 import CardPanelWrap from './CardPanelWrap';
+import PanelHeaderWrap from './PanelHeaderWrap';
 
 export default {
   name: 'AppBody',
@@ -69,7 +72,8 @@ export default {
     SelectionPanel,
     HelpPanel,
     CssPanel,
-    CardPanelWrap
+    CardPanelWrap,
+    PanelHeaderWrap
   },
   computed: {
     ...mapState([

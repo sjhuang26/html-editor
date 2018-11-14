@@ -1,6 +1,6 @@
 <!-- a panel that contains sample HTML elements to add to the code -->
 <template>
-  <div>
+  <div class="v-layout">
     <WelcomePanel v-show="currentHelpPanelTab === 0" />
     <ReferencePanel v-show="currentHelpPanelTab === 1" />
     <TutorialPanel v-show="currentHelpPanelTab === 2" />
