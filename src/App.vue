@@ -54,3 +54,8 @@ export default {
   font-size: 1.5rem;
 }
 </style>
+
+<style lang="scss">
+@import './styles/main.scss';
+@import 'bootstrap/scss/bootstrap.scss';
+</style>
