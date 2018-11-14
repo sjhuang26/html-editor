@@ -6,14 +6,15 @@
       <ul class="list-group">
         <li
           v-for="tag of category.tags"
-          class="list-group-item d-flex justify-content-between align-items-center"
+          class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
           :key="'reference-tag-category-tag-' + tag"
+          @click="currentTag = tag"
         >
           <div>
             <p>{{ tag }} <TagLevelBadge :level="tags[tag].level" /></p>
             <p>{{ tags[tag].description }}</p>
           </div>
-          <button class="btn btn-sm" @click="currentTag = tag">Learn more</button>
+          <i class="fa fa-arrow-right"></i>
         </li>
       </ul>
     </div>

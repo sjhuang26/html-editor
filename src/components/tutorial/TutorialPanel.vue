@@ -7,9 +7,9 @@
         <li
           v-for="(page, index) in tutorial.pages"
           :key="'tutorial-table-of-contents-page' + index"
-          class="list-group-item list-group-item-action"
+          class="tutorial-toc-item list-group-item list-group-item-action"
           @click="changeCurrentTutorialPage(index)"
-        >{{ page.title }}</li>
+        >{{ page.title }}<i class="fa fa-arrow-right"></i></li>
       </ul>
     </div>
     <div v-for="(page, index) in tutorial.pages" :key="'tutorial-page-' + index" v-show="currentTutorialPageIndex === index">
@@ -52,3 +52,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.tutorial-toc-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+</style>
