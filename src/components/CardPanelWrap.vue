@@ -9,7 +9,9 @@
         {{ panelInfo[panelName].title }}
       </template>
     </div>
-    <slot :class="bodyClass" />
+    <div :class="bodyClass">
+      <slot />
+    </div>
   </div>
 </template>
 

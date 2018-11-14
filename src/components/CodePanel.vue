@@ -59,6 +59,5 @@ export default {
 
 <style scoped>
 .code-input {
-  height: 100%;
 }
 </style>

@@ -35,7 +35,6 @@ export default {
 .v-layout {
   display: flex;
   flex-flow: column;
-  height: 100%;
 }
 .v-layout > * {
   flex: 1;

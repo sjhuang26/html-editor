@@ -7,7 +7,7 @@
     </div>
     <div class="body h-layout">
       <div class="v-layout">
-        <CardPanelWrap :panelTitle="helpPanelTabs[currentHelpPanelTab]">
+        <CardPanelWrap :panelTitle="helpPanelTabs[currentHelpPanelTab]" bodyClass="v-layout scroll-layout">
           <HelpPanel />
         </CardPanelWrap>
       </div>
