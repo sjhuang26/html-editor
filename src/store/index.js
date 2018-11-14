@@ -21,7 +21,14 @@ export default new Vuex.Store({
     selection: [],
 
     // for the tutorial panel
-    currentTutorialPageIndex: 0
+    currentTutorialPageIndex: null,
+
+    // current tab of the help panel
+    currentHelpPanelTab: 0,
+
+    isBrowsingExamples: false,
+
+    nonExampleCode: ``
   },
   getters: {
     // get the code model
@@ -50,6 +57,15 @@ export default new Vuex.Store({
     },
     setCurrentTutorialPage(state, newPageIndex) {
       state.currentTutorialPageIndex = newPageIndex;
+    },
+    setCurrentHelpPanelTab(state, newTabIndex) {
+      state.currentHelpPanelTab = newTabIndex;
+    },
+    setBrowsingExamples(state, isBrowsing) {
+      state.isBrowsingExamples = isBrowsing;
+    },
+    setNonExampleCode(state, newCode) {
+      state.nonExampleCode = newCode;
     }
   },
   actions: {
@@ -65,6 +81,14 @@ export default new Vuex.Store({
     },
     changeCurrentTutorialPage({ commit }, newPageIndex) {
       commit('setCurrentTutorialPage', newPageIndex);
+    },
+    turnExamplesOn({ commit, state }) {
+      commit('setBrowsingExamples', true);
+      commit('setNonExampleCode', state.code);
+    },
+    turnExamplesOff({ commit, state }) {
+      commit('setBrowsingExamples', false);
+      commit('setCode', state.nonExampleCode);
     }
   }
 });

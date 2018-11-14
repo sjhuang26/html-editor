@@ -24,3 +24,11 @@ export const panelInfo = {
     title: 'CSS'
   }
 };
+
+export const helpPanelTabs = [
+  'Welcome',
+  'Tags',
+  'Tutorial',
+  'CSS',
+  'Current tag'
+];

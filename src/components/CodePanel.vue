@@ -1,6 +1,10 @@
 <!-- a panel that contains a textbox where code can be entered -->
 <template>
   <div>
+    <div class="alert alert-primary" v-show="isBrowsingExamples">
+      <p>This is example code. You can edit it and see what the website looks like.</p>
+      <button class="btn btn-primary" @click="turnExamplesOff()">Close examples</button>
+    </div>
     <Codemirror
       class="code-input"
       :value="code"
@@ -11,7 +15,7 @@
 
 <script>
 import 'codemirror/lib/codemirror.css';
-// import 'codemirror/theme/solarized.css';
+import 'codemirror/theme/monokai.css';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 import {codemirror as Codemirror} from 'vue-codemirror';
 import {mapGetters, mapActions, mapState} from 'vuex';
@@ -21,7 +25,7 @@ export default {
   props: {
     name: {
       title: 'Code',
-      description: "TODO"
+      description: 'TODO'
     }
   },
   components: {
@@ -30,18 +34,21 @@ export default {
   data() {
     return {
       codemirrorOptions: {
-        mode: 'text/html'
+        mode: 'text/html',
+        theme: 'monokai'
       }
     }
   },
   methods: {
     ...mapActions([
-      'updateCode'
+      'updateCode',
+      'turnExamplesOff'
     ])
   },
   computed: {
     ...mapState([
-      'code'
+      'code',
+      'isBrowsingExamples'
     ]),
     ...mapGetters([
       'codeModel'

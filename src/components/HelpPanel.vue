@@ -1,27 +1,16 @@
 <!-- a panel that contains sample HTML elements to add to the code -->
 <template>
   <div>
-    <b-tabs>
-      <b-tab title="Welcome" active>
-        <WelcomePanel />
-      </b-tab>
-      <b-tab title="Tags">
-        <ReferencePanel />
-      </b-tab>
-      <b-tab title="Tutorial">
-        <TutorialPanel />
-      </b-tab>
-      <b-tab title="CSS">
-        <CssPanel />
-      </b-tab>
-      <b-tab title="Current tag">
-        <SelectionPanel />
-      </b-tab>
-    </b-tabs>
+    <WelcomePanel v-show="currentHelpPanelTab === 0" />
+    <ReferencePanel v-show="currentHelpPanelTab === 1" />
+    <TutorialPanel v-show="currentHelpPanelTab === 2" />
+    <CssPanel v-show="currentHelpPanelTab === 3" />
+    <SelectionPanel v-show="currentHelpPanelTab === 4" />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 import CssPanel from './CssPanel';
 import SelectionPanel from './SelectionPanel';
@@ -37,6 +26,11 @@ export default {
     TutorialPanel,
     WelcomePanel,
     ReferencePanel
+  },
+  computed: {
+    ...mapState([
+      'currentHelpPanelTab'
+    ])
   }
 };
 </script>

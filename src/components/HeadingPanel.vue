@@ -1,7 +1,6 @@
 <!-- a panel that contains the heading -->
 <template>
   <nav class="navbar navbar-expand-md">
-
     <div class="navbar-brand">
       <img style="max-width:275px; max-height:67px; margin-top: -7px;" src="../img/Brand.png" width="1099"
            height="266" alt="Brand" class="img-responsive">

@@ -41,6 +41,9 @@ export default {
   flex: 1;
   min-width: 0;
 }
+.flex-fit-content {
+  flex: 0;
+}
 .scroll-layout {
   overflow: auto;
 }

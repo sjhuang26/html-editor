@@ -1,17 +1,15 @@
 <template>
-  <div class="card">
-    <div class="card-header">
+  <div class="card-panel v-layout">
+    <div class="card-panel-header flex-fit-content">
       <template v-if="panelTitle !== undefined">
         {{ panelTitle }}
+        <slot name="header" />
       </template>
       <template v-else-if="panelName !== undefined">
         {{ panelInfo[panelName].title }}
       </template>
-      <slot name="header" />
     </div>
-    <div class="card-body scroll-layout" :class="bodyClass">
-      <slot />
-    </div>
+    <slot :class="bodyClass" />
   </div>
 </template>
 
@@ -41,3 +39,16 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.card-panel {
+  margin: 1rem;
+}
+.card-panel-header {
+  font-size: 2.5rem;
+  border-radius: 1rem;
+  border: 3px solid #EEE;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+</style>

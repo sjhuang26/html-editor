@@ -25,10 +25,12 @@ export default {
   },
   methods: {
     tutorialTryOut(code) {
+      this.turnExamplesOn();
       this.updateCode(code);
     },
     ...mapActions([
-      'updateCode'
+      'updateCode',
+      'turnExamplesOn'
     ])
   }
 };

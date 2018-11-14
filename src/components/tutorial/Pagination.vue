@@ -1,6 +1,11 @@
 <template>
   <div>
-    <b-form-select
+    <button class="btn btn-primary" @click="changeCurrentTutorialPage(null)">Back to table of contents</button>
+  </div>
+</template>
+
+<script>
+/*<b-form-select
       :value="currentTutorialPageIndex"
       @input="changeCurrentTutorialPage"
     >
@@ -11,11 +16,7 @@
       >
         {{ page.title }}
       </option>
-    </b-form-select>
-  </div>
-</template>
-
-<script>
+    </b-form-select> */
 import { mapState, mapActions } from 'vuex';
 import { tutorial } from '../../js/tutorial';
 

@@ -7,7 +7,7 @@
     </div>
     <div class="body h-layout">
       <div class="v-layout">
-        <CardPanelWrap panelName="help">
+        <CardPanelWrap :panelTitle="helpPanelTabs[currentHelpPanelTab]">
           <HelpPanel />
         </CardPanelWrap>
       </div>
@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 // all the panels
 import HeadingPanel from './HeadingPanel';
 import CodePanel from './CodePanel';
@@ -46,13 +48,16 @@ import SelectionPanel from './SelectionPanel';
 import HelpPanel from './HelpPanel';
 import CssPanel from './CssPanel';
 
+import { helpPanelTabs } from '../js/panel-info';
+
 import CardPanelWrap from './CardPanelWrap';
 
 export default {
   name: 'AppBody',
   data() {
     return {
-      isExplanationShown: false
+      isExplanationShown: false,
+      helpPanelTabs
     };
   },
   components: {
@@ -65,14 +70,16 @@ export default {
     HelpPanel,
     CssPanel,
     CardPanelWrap
+  },
+  computed: {
+    ...mapState([
+      'currentHelpPanelTab'
+    ])
   }
 };
 </script>
 
 <style>
-.header {
-  background-color: #EEE;
-}
 .body {
   flex: 1;
   overflow: auto;
