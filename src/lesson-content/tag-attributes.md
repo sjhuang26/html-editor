@@ -1,17 +1,16 @@
-You can add _attributes_ to a tag. Attributes can describe things such as:
-* the width and height of the tag
-* (for forms) whether the tag is a textbox, checkbox, or datepicker
-* (for links) the website the link goes to
+You can add _attributes_ to a tag. Attributes indicate that a certain thing has a certain value:
+* A ```p``` tag might have ```width``` (attribute name) of ```100px``` (attribute value).
+* An ```input``` tag might have ```type``` (attribute name) of ```date``` (attribute value).
 
-Attributes are added to tags. Attributes consist of a name and a value for that name. For example, a ```p``` tag might have ```width``` (attribute name) of ```100px``` (attribute value).
+As a side note, measurements such as width and height are written in units called _pixels_. 100 pixels would be about an inch. In HTML, when something is XYZ pixels, we write it as ```XYZpx```, with a "px" at the end; for example, ```50px```.
 
-Here are some attribute names:
+Here are some attributes:
 <table class="table">
     <thead>
         <tr>
             <th>Name</th>
-            <th>What it represents</th>
-            <th>How to use it</th>
+            <th>Definition</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
@@ -19,8 +18,6 @@ Here are some attribute names:
         <tr><td>height</td><td>Height of an element</td><td>height="100px"</td></tr>
     </tbody>
 </table>
-
-As a side note, widths/heights are written in units called _pixels_. One pixel is the size of a tiny dot on the screen, and 100 pixels would be about an inch. In HTML, when something is XYZ pixels, we write it as ```XYZpx```, with a "px" at the end; for example, ```50px```.
 
 The easiest way to learn attributes is through concrete examples. Let's start with a tag with no attributes:
 ```
