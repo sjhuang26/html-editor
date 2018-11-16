@@ -18,7 +18,7 @@ export default {
 
 <style scoped>
 .app {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   height: 100%;
 }
 </style>
@@ -27,6 +27,7 @@ export default {
 .h-layout {
   display: flex;
   flex-flow: row;
+  justify-content: center;
 }
 .h-layout > * {
   flex: 1;
@@ -35,13 +36,14 @@ export default {
 .v-layout {
   display: flex;
   flex-flow: column;
+  justify-content: center;
 }
 .v-layout > * {
   flex: 1;
-  min-width: 0;
+  min-height: 0;
 }
 .flex-fit-content {
-  flex: 0;
+  flex: 0 1 auto;
 }
 .scroll-layout {
   overflow: auto;

@@ -2,7 +2,8 @@
 <template>
   <div>
     <div v-if="selectionModel === null">
-      <p>Nothing selected</p>
+      <p class="lead">Nothing selected</p>
+      <p>Click on a part of the code to select it.</p>
     </div>
     <div v-else-if="selectionModel.type === 'text'">
       <p class="lead">Text</p>

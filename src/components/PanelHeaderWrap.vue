@@ -1,9 +1,9 @@
 <template>
   <div class="v-layout">
-    <div v-show="!hideHeader" class="panel-header flex-fit-content">
-      <button v-if="includeBack" @click="$emit('backButtonClick')"><i class="fa fa-arrow-left"></i></button>
+    <div v-show="!hideHeader" class="panel-header h-layout flex-fit-content">
+      <span class="panel-header-button panel-header-left v-layout flex-fit-content" v-if="includeBack" @click="$emit('backButtonClick')"><i class="fa fa-arrow-left flex-fit-content"></i></span>
       <span v-if="title !== undefined" class="panel-header-title">{{ title }}</span>
-      <button v-if="rightButton !== undefined" @click="$emit('rightButtonClick')">{{ rightButton.text }}</button>
+      <span class="panel-header-button panel-header-right v-layout flex-fit-content" v-if="rightButton !== undefined" @click="$emit('rightButtonClick')"><span class="flex-fit-content">{{ rightButton.text }}</span></span>
     </div>
     <div :class="bodyClass">
       <slot />
@@ -39,11 +39,22 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .panel-header {
   font-size: 2rem;
+  background-color: $primary;
 }
 .panel-header-title {
-  font-weight: bold;
+  color: white;
+  margin: 0 .5rem;
+}
+.panel-header-button {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 1.5rem;
+  border-radius: 0.25rem;
+  margin: .25rem;
+  padding: 0 .25rem;
+  cursor: pointer;
 }
 </style>

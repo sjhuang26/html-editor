@@ -90,26 +90,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .explanation-node {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
   transition: background-color 0.1s;
 }
-.explanation-node-text {
-  color: darkgray;
-}
-.explanation-node-tag {
-  color: green;
-}
-.explanation-node-tag-name {
-  color: blue;
-}
 .explanation-node-selected {
-  background-color: #0AA;
+  background-color: rgba($primary, 0.2);
 }
 .explanation-node-hovered,
 .explanation-node-hovered .explanation-node-selected {
-  background-color: #0EE;
+  background-color: rgba($primary, 0.1);
 }
 </style>

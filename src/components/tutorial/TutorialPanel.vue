@@ -1,7 +1,7 @@
 <template>
   <div class="v-layout">
     <div v-if="currentTutorialPageIndex === null">
-      <ul class="list-group">
+      <ul class="list-group tutorial-toc">
         <li
           v-for="(page, index) in tutorial.pages"
           :key="'tutorial-table-of-contents-page' + index"
@@ -63,5 +63,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.tutorial-toc {
+  margin: 1.5rem 0;
 }
 </style>

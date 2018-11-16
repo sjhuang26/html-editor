@@ -43,6 +43,10 @@ export default new Vuex.Store({
     // get the model of the current selection (which is a subset of the entire model)
     selectionModel: (state, getters) => {
       return traverseModel(getters.codeModel, state.selection);
+    },
+
+    codeIsBlank: (state) => {
+      return state.code.trim().length === 0;
     }
   },
   mutations: {
