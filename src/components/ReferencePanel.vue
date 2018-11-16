@@ -1,7 +1,7 @@
 <template>
   <div v-if="currentTag === null">
     <div v-for="(category, index) of categorizedTags" :key="'reference-tag-category-' + index">
-      <p class="lead">{{ category.name }}</p>
+      <h2>{{ category.name }}</h2>
       <p><small>{{ category.description}}</small></p>
       <ul class="list-group">
         <li

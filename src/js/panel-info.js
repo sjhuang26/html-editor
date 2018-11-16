@@ -27,8 +27,8 @@ export const panelInfo = {
 
 export const helpPanelTabs = [
   'Welcome',
-  'Tags',
+  'Reference',
   'Tutorial',
   'CSS',
-  'Current tag'
+  'Current selection'
 ];
