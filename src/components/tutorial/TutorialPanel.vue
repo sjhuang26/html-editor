@@ -1,6 +1,8 @@
 <template>
   <div class="v-layout">
     <div v-if="currentTutorialPageIndex === null">
+      <p class="lead">Welcome to the tutorial!</p>
+      <p>Start by going through these basic concepts. Then, head over to the Reference to see what you can make with HTML.</p>
       <ul class="list-group tutorial-toc">
         <li
           v-for="(page, index) in tutorial.pages"
@@ -30,7 +32,7 @@ import { mapState, mapActions } from 'vuex';
 
 import { tutorial } from '../../js/tutorial';
 import Lesson from './Lesson';
-import Examples from './Examples';
+import Examples from '../Examples';
 import PanelHeaderWrap from '../PanelHeaderWrap';
 
 export default {

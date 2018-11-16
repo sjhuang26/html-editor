@@ -2,9 +2,9 @@
 <template>
   <div>
     <div v-if="selectionModel === null">
-      <div class="jumbotron m-4">
-        <p class="display-4">Nothing selected</p>
-        <p class="lead">Click on a part of the code in the explanation to select it.</p>
+      <div class="alert alert-primary">
+        <p class="lead">Nothing selected</p>
+        <p>Click on a part of the code in the explanation to select it.</p>
       </div>
     </div>
     <div v-else-if="selectionModel.type === 'text'">
@@ -13,7 +13,7 @@
     </div>
     <div v-else>
       <p class="lead">{{ selectionModel.name }}</p>
-      <p>{{ tags[selectionModel.name].description }}</p>
+      <ReferenceTag :tag="selectionModel.name" />
       <table v-if="selectionModel.attributes.length > 0" class="table">
         <thead>
           <tr>
@@ -37,8 +37,13 @@ import { mapState, mapGetters } from 'vuex';
 
 import { tags } from '../js/help';
 
+import ReferenceTag from './ReferenceTag';
+
 export default {
   name: 'SelectionPanel',
+  components: {
+    ReferenceTag
+  },
   props: {
     name: {
       title: 'Selection',

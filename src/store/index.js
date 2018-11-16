@@ -12,7 +12,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     // the HTML code
-    code: `<html>\n<body>\n<p>Hello world!</p>\n<a href="https://example.com">Link</a>\n</body>\n</html>`,
+    code: `<h1>My website</h1>\n<p>This is a paragraph.</p>\n<p>This is more text.</p>`,
 
     // the CSS selector code
     cssCode: 'p, .abc',

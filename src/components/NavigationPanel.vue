@@ -1,6 +1,7 @@
 <!-- a panel that contains toggle buttons to show/hide other panels -->
 <template>
   <div class="navigation-panel">
+    <button class="btn btn-dark mr-3">An HTML tutorial</button>
     <div class="btn-group navigation-panel-buttons">
       <button
         v-for="(item, index) of helpPanelTabs"
@@ -11,7 +12,9 @@
       >
         {{ item }}
       </button>
+      <button class="btn btn-primary" @click="downloadConfirmation">Download code</button>
     </div>
+    <b-modal ref="downloadModal" title="The code will download onto your computer." @ok="download(code, 'website.html')" ok-title="Download" cancel-title="Cancel" />
   </div>
 </template>
 
@@ -19,6 +22,7 @@
 import { mapState, mapMutations } from 'vuex';
 
 import { helpPanelTabs } from '../js/panel-info';
+import download from '../js/download-lib';
 
 export default {
   props: {
@@ -35,11 +39,16 @@ export default {
   methods: {
     ...mapMutations([
       'setCurrentHelpPanelTab'
-    ])
+    ]),
+    download,
+    downloadConfirmation() {
+      this.$refs.downloadModal.show();
+    }
   },
   computed: {
     ...mapState([
-      'currentHelpPanelTab'
+      'currentHelpPanelTab',
+      'code'
     ])
   }
 };

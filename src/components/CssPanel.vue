@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>This panel is incomplete.</h1>
+    <div class="alert alert-primary">This panel is a work in progress.</div>
     <p class="lead">CSS selector</p>
     <input type="text" class="form-control" :value="cssCode" @input="updateCssCode($event.target.value)"/>
     <p class="lead">Meaning</p>

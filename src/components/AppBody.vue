@@ -16,15 +16,15 @@
       </CardPanelWrap>
       <CardPanelWrap>
         <PanelHeaderWrap
-          :title="isExplanationShown ? 'Explanation' : 'Code'"
+          :title="isExplanationShown ? 'Explanation' : 'Code editor'"
           :rightButton="{text: isExplanationShown ? 'Show code' : 'Show explanation'}"
           @rightButtonClick="isExplanationShown = !isExplanationShown"
           :bodyClass="'v-layout fixed-scroll-layout' + (isExplanationShown ? '' : ' p-0')"
         >
           <CodePanel v-show="!isExplanationShown" />
-          <div v-show="isExplanationShown">
-            <ExplanationPanel class="body-column-item" />
-            <SelectionPanel class="body-column-item" />
+          <div v-show="isExplanationShown" class="v-layout">
+            <ExplanationPanel class="body-column-item scroll-layout" />
+            <SelectionPanel class="body-column-item scroll-layout" />
           </div>
         </PanelHeaderWrap>
       </CardPanelWrap>

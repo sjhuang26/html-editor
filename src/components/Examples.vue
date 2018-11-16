@@ -5,7 +5,7 @@
         <b-tab v-for="(example, index) of examples" :key="'tutorial-example-' + JSON.stringify(example)" :title="String(index + 1)">
           <p>{{ example.description }}</p>
           <pre class="example-code"><code>{{ example.code }}</code></pre>
-          <b-button @click="tutorialTryOut(example.code)">Try it out</b-button>
+          <b-button @click="tutorialTryOut(example.code)">Edit example</b-button>
         </b-tab>
       </b-tabs>
     </b-card>

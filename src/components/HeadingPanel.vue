@@ -10,7 +10,7 @@
         <li class="nav-item">
           A project by Suhao Jeffrey Huang
         </li>
-    </ul>
+      </ul>
     </div>
   </nav>
 
