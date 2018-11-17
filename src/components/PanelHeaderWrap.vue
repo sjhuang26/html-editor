@@ -5,7 +5,7 @@
       <span v-if="title !== undefined" class="panel-header-title">{{ title }}</span>
       <span class="panel-header-button panel-header-right v-layout flex-fit-content" v-if="rightButton !== undefined" @click="$emit('rightButtonClick')"><span class="flex-fit-content">{{ rightButton.text }}</span></span>
     </div>
-    <div :class="bodyClass">
+    <div :class="bodyClass" class="panel-body">
       <slot />
     </div>
   </div>
@@ -56,5 +56,8 @@ export default {
   margin: .25rem;
   padding: 0 .25rem;
   cursor: pointer;
+}
+.panel-body {
+  padding: 1rem;
 }
 </style>

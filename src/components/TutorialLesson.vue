@@ -12,7 +12,7 @@ marked.setOptions({
 });
 
 export default {
-  name: 'Lesson',
+  name: 'TutorialLesson',
   props: {
     markdownContent: {
       type: String,

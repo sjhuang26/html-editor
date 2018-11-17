@@ -3,8 +3,7 @@
   <div>
     <div v-if="selectionModel === null">
       <div class="alert alert-primary">
-        <p class="lead">Nothing selected</p>
-        <p>Click on a part of the code in the explanation to select it.</p>
+        <p>Click on a part of the code in the explanation to learn more about it.</p>
       </div>
     </div>
     <div v-else-if="selectionModel.type === 'text'">

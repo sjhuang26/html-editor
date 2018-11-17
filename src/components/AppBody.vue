@@ -8,10 +8,13 @@
     <div class="body h-layout">
       <CardPanelWrap>
         <PanelHeaderWrap
-          :title="helpPanelTabs[currentHelpPanelTab]"
+          :title="currentHelpPanelTab"
           bodyClass="v-layout scroll-layout"
         >
-          <HelpPanel />
+          <WelcomePanel v-show="currentHelpPanelTab === 'Welcome'" />
+          <TutorialPanel v-show="currentHelpPanelTab === 'Tutorial'" />
+          <CssPanel v-show="currentHelpPanelTab === 'CSS'" />
+          <SelectionPanel v-show="currentHelpPanelTab === 'Current selection'" />
         </PanelHeaderWrap>
       </CardPanelWrap>
       <CardPanelWrap>
@@ -19,12 +22,12 @@
           :title="isExplanationShown ? 'Explanation' : 'Code editor'"
           :rightButton="{text: isExplanationShown ? 'Show code' : 'Show explanation'}"
           @rightButtonClick="isExplanationShown = !isExplanationShown"
-          :bodyClass="'v-layout fixed-scroll-layout' + (isExplanationShown ? '' : ' p-0')"
+          :bodyClass="'v-layout scroll-layout'"
         >
           <CodePanel v-show="!isExplanationShown" />
           <div v-show="isExplanationShown" class="v-layout">
-            <ExplanationPanel class="body-column-item scroll-layout" />
-            <SelectionPanel class="body-column-item scroll-layout" />
+            <ExplanationPanel class="scroll-layout" />
+            <SelectionPanel class="scroll-layout" />
           </div>
         </PanelHeaderWrap>
       </CardPanelWrap>
@@ -47,10 +50,9 @@ import ExplanationPanel from './ExplanationPanel';
 import NavigationPanel from './NavigationPanel';
 import WebsitePanel from './WebsitePanel';
 import SelectionPanel from './SelectionPanel';
-import HelpPanel from './HelpPanel';
+import TutorialPanel from './TutorialPanel';
+import WelcomePanel from './WelcomePanel';
 import CssPanel from './CssPanel';
-
-import { helpPanelTabs } from '../js/panel-info';
 
 import CardPanelWrap from './CardPanelWrap';
 import PanelHeaderWrap from './PanelHeaderWrap';
@@ -59,8 +61,7 @@ export default {
   name: 'AppBody',
   data() {
     return {
-      isExplanationShown: false,
-      helpPanelTabs
+      isExplanationShown: false
     };
   },
   components: {
@@ -70,10 +71,11 @@ export default {
     NavigationPanel,
     WebsitePanel,
     SelectionPanel,
-    HelpPanel,
     CssPanel,
     CardPanelWrap,
-    PanelHeaderWrap
+    PanelHeaderWrap,
+    TutorialPanel,
+    WelcomePanel
   },
   computed: {
     ...mapState([

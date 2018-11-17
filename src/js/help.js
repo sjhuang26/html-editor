@@ -140,7 +140,7 @@ export const tags = {
 
 export const categorizedTags = [
   {
-    name: 'Text',
+    name: 'Tags for text',
     description: `Headers, paragraphs, and anything to do with text.`,
     tags: ['p', 'h1', 'h2', 'h3', 'b', 'i', 'u'],
     examples: [
@@ -155,7 +155,7 @@ export const categorizedTags = [
     ]
   },
   {
-    name: 'Interactive',
+    name: 'Tags for interactivity',
     description: `Things you can click: buttons, links, and so on.`,
     tags: ['a', 'button'],
     examples: [
@@ -166,17 +166,17 @@ export const categorizedTags = [
     ]
   },
   {
-    name: 'Lists',
+    name: 'Tags for lists',
     description: `Bulleted lists and numbered lists.`,
     tags: ['ul', 'ol', 'li']
   },
   {
-    name: 'Forms',
+    name: 'Tags for forms',
     description: `Forms.`,
     tags: ['input']
   },
   {
-    name: 'Structural',
+    name: 'Tags for structure and layout',
     description: `Tags that are used as boxes for other tags and don't have any special visual effects associated with them.`,
     tags: ['html', 'body', 'div']
   }

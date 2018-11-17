@@ -21,10 +21,10 @@ export default new Vuex.Store({
     selection: [],
 
     // for the tutorial panel
-    currentTutorialPageIndex: null,
+    tutorialSection: null,
 
     // current tab of the help panel
-    currentHelpPanelTab: 0,
+    currentHelpPanelTab: 'Welcome',
 
     isBrowsingExamples: false,
 
@@ -59,11 +59,11 @@ export default new Vuex.Store({
     setCssCode(state, newCode) {
       state.cssCode = newCode;
     },
-    setCurrentTutorialPage(state, newPageIndex) {
-      state.currentTutorialPageIndex = newPageIndex;
+    setTutorialSection(state, newSection) {
+      state.tutorialSection = newSection;
     },
-    setCurrentHelpPanelTab(state, newTabIndex) {
-      state.currentHelpPanelTab = newTabIndex;
+    setCurrentHelpPanelTab(state, newTab) {
+      state.currentHelpPanelTab = newTab;
     },
     setBrowsingExamples(state, isBrowsing) {
       state.isBrowsingExamples = isBrowsing;

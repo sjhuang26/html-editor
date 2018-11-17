@@ -5,6 +5,10 @@
       <p>This is example code. You can edit it and see what the website looks like.</p>
       <button class="btn btn-primary" @click="turnExamplesOff()">Close examples</button>
     </div>
+    <b-alert variant="primary" show dismissible>
+      <p>This is where you will enter HTML code. Click the "show explanation" button to switch between explanation and code.</p>
+      <button class="btn btn-primary" @click="setCurrentHelpPanelTab('Tutorial')">Need help? Go to the tutorial.</button>
+    </b-alert>
     <Codemirror
       class="code-input"
       :value="code"
@@ -18,7 +22,7 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/monokai.css';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 import {codemirror as Codemirror} from 'vue-codemirror';
-import {mapGetters, mapActions, mapState} from 'vuex';
+import {mapGetters, mapActions, mapState, mapMutations} from 'vuex';
 
 export default {
   name: 'CodePanel',
@@ -35,7 +39,8 @@ export default {
     return {
       codemirrorOptions: {
         mode: 'text/html',
-        theme: 'monokai'
+        theme: 'monokai',
+        lineWrapping: true
       }
     }
   },
@@ -43,6 +48,9 @@ export default {
     ...mapActions([
       'updateCode',
       'turnExamplesOff'
+    ]),
+    ...mapMutations([
+      'setCurrentHelpPanelTab'
     ])
   },
   computed: {
