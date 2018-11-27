@@ -2,6 +2,9 @@
 Contains strings used in help messages.
 */
 
+/*
+If a tag has usedWith parameter set to X, then that tag should not be used without the presence of tag X around it. Thus, that tag will not have any code examples of its own; its code examples will be copied from tag X.
+*/
 export const tags = {
   html: {
     title: 'html',
