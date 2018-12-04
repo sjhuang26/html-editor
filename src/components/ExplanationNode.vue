@@ -9,17 +9,15 @@
     <div
       class="explanation-node-text"
       v-if="node.type === 'text'"
-      v-b-tooltip.hover="getInlineTextHelp()"
     >{{ node.content }}</div>
     <div v-else>
-      <div class="explanation-node-tag"
-        v-b-tooltip.hover="getInlineTagHelp(node.name)"
-      >
+      <div class="explanation-node-tag">
         &lt;<span class="explanation-node-tag-name">{{ node.name }}</span>
         <span
           v-for="attribute of node.attributes"
           :key="'attribute-' + attribute.name + '=' + attribute.value"
         >{{ ' ' + attribute.name + '=' + attribute.value }}</span>&gt;
+        <i>{{ getInlineTagHelp(node.name) }}</i>
       </div>
       <!-- recursive component!! ExplanationNode inside ExplanationNode -->
       <div style="padding-left: 10px; border-left: 2px solid black">
@@ -34,7 +32,6 @@
       </div>
       <div
         class="explanation-node-tag"
-        v-b-tooltip.hover="getInlineTagHelp(node.name)"
       >
         &lt;/<span class="explanation-node-tag-name">{{ node.name }}</span>&gt;
       </div>
@@ -45,7 +42,7 @@
 <script>
 import $ from 'jquery';
 
-import { getInlineTagHelp, getInlineTextHelp } from '../help/help';
+import { getInlineTagHelp, getInlineTextHelp } from '../js/help';
 
 export default {
   name: 'ExplanationNode',
@@ -90,26 +87,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .explanation-node {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
   transition: background-color 0.1s;
 }
-.explanation-node-text {
-  color: darkgray;
-}
-.explanation-node-tag {
-  color: green;
-}
-.explanation-node-tag-name {
-  color: blue;
-}
 .explanation-node-selected {
-  background-color: #0AA;
+  background-color: rgba($primary, 0.2);
 }
 .explanation-node-hovered,
 .explanation-node-hovered .explanation-node-selected {
-  background-color: #0EE;
+  background-color: rgba($primary, 0.1);
 }
 </style>

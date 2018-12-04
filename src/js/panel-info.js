@@ -11,8 +11,8 @@ export const panelInfo = {
   selection: {
     title: 'Selection'
   },
-  toolbox: {
-    title: 'Toolbox'
+  help: {
+    title: 'Help'
   },
   heading: {
     title: 'Heading'
@@ -24,3 +24,11 @@ export const panelInfo = {
     title: 'CSS'
   }
 };
+
+export const helpPanelTabs = [
+  'Welcome',
+  'Reference',
+  'Tutorial',
+  'CSS',
+  'Current selection'
+];

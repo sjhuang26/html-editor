@@ -1,8 +1,13 @@
 <!-- basically an IFRAME used in the website panel with point-and-click selection functionality -->
 <template>
-  <div>
-    <iframe class="sandbox" ref="iframe">
+  <div class="v-layout sandbox">
+    <iframe v-show="navigationDestination === null" class="sandbox-iframe" ref="iframe">
     </iframe>
+    <div class="jumbotron sandbox-navigation-message" v-show="navigationDestination !== null">
+      <p class="display-4">The link worked!</p>
+      <p class="lead">It would have gone to {{ navigationDestination }}.</p>
+      <button class="btn btn-primary" @click="navigationDestination = null">Go back</button>
+    </div>
   </div>
 </template>
 
@@ -20,7 +25,8 @@ export default {
   data() {
     return {
       $c: undefined,
-      child: undefined
+      child: undefined,
+      navigationDestination: null
     };
   },
   mounted() {
@@ -55,6 +61,12 @@ export default {
       const injectedCSS = `
       `;
       $c.find('head').append($('<style>').text(injectedCSS));
+
+      // LINKS
+      $c.find('a').on('click', (e) => {
+        this.navigationDestination = e.target.href;
+        return false;
+      });
 
       /*$c.find('html').on('click', (e) => this.handleElementClicked(e.target));
 
@@ -92,12 +104,16 @@ export default {
 </script>
 
 <style scoped>
-.sandbox {
+.sandbox-iframe {
   border: none;
   outline: none;
+  overflow: auto;
   margin: 0;
   padding: 0;
-  overflow: auto;
   width: 100%;
+  height: 100%;
+}
+.sandbox-navigation-message {
+  margin: 1.5rem;
 }
 </style>

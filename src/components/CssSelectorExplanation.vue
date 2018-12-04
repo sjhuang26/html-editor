@@ -42,7 +42,6 @@ export default {
   }
 };
 </script>
-
 <style scoped>
 .css-selector {
   font-family: 'Courier New', Courier, monospace;

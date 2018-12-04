@@ -1,15 +1,14 @@
 <!-- a panel that contains the website produced by the HTML code -->
 <template>
-  <CollapsiblePanel panelName="website">
-    <Sandbox :content="code" />
-  </CollapsiblePanel>
+  <div class="v-layout website-panel">
+    <Sandbox :content="code"/>
+  </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 
 import Sandbox from './Sandbox';
-import CollapsiblePanel from './CollapsiblePanel';
 
 export default {
   name: 'WebsitePanel',
@@ -19,8 +18,7 @@ export default {
         }
     },
   components: {
-    Sandbox,
-    CollapsiblePanel
+    Sandbox
   },
   computed: {
     ...mapState([
@@ -29,3 +27,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.website-panel {
+  box-shadow: 2px 2px 10px #AAA;
+}
+</style>

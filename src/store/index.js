@@ -5,23 +5,30 @@ This is a Vuex store.
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { parseHTML, traverseModel, parseCssSelector } from '../parser/parser';
+import { parseHTML, traverseModel, parseCssSelector } from '../js/parser';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     // the HTML code
-    code: `<html>\n<body>\n<p>Hello world!</p>\n<a href="https://example.com">Link</a>\n</body>\n</html>`,
+    code: `<h1>My website</h1>\n<p>This is a paragraph.</p>\n<p>This is more text.</p>`,
 
     // the CSS selector code
     cssCode: 'p, .abc',
 
-    // an array of names of visible panels
-    visiblePanels: ['heading', 'navigation', 'explanation', 'website', 'code', 'selection', 'toolbox', 'css'],
-
     // a position array of the current selection
-    selection: []
+    selection: [],
+
+    // for the tutorial panel
+    tutorialSection: null,
+
+    // current tab of the help panel
+    currentHelpPanelTab: 'Welcome',
+
+    isBrowsingExamples: false,
+
+    nonExampleCode: ``
   },
   getters: {
     // get the code model
@@ -36,20 +43,33 @@ export default new Vuex.Store({
     // get the model of the current selection (which is a subset of the entire model)
     selectionModel: (state, getters) => {
       return traverseModel(getters.codeModel, state.selection);
+    },
+
+    codeIsBlank: (state) => {
+      return state.code.trim().length === 0;
     }
   },
   mutations: {
     setCode(state, newCode) {
       state.code = newCode;
     },
-    setVisiblePanels(state, newPanels) {
-      state.visiblePanels = newPanels;
-    },
     setSelection(state, newSelection) {
       state.selection = newSelection;
     },
     setCssCode(state, newCode) {
       state.cssCode = newCode;
+    },
+    setTutorialSection(state, newSection) {
+      state.tutorialSection = newSection;
+    },
+    setCurrentHelpPanelTab(state, newTab) {
+      state.currentHelpPanelTab = newTab;
+    },
+    setBrowsingExamples(state, isBrowsing) {
+      state.isBrowsingExamples = isBrowsing;
+    },
+    setNonExampleCode(state, newCode) {
+      state.nonExampleCode = newCode;
     }
   },
   actions: {
@@ -60,22 +80,19 @@ export default new Vuex.Store({
     updateCssCode({ commit }, newCode) {
       commit('setCssCode', newCode);
     },
-    updateVisiblePanels({ commit }, newPanels) {
-      commit('setVisiblePanels', newPanels);
-    },
     updateSelection({ commit }, newSelection) {
       commit('setSelection', newSelection);
     },
-    // toggle the visibility of a single panel
-    togglePanelVisibility({ dispatch, state }, panelName) {
-      // this code manipulates an array containing names of all the visible panels
-      if (state.visiblePanels.includes(panelName)) {
-        // remove panel
-        dispatch('updateVisiblePanels', state.visiblePanels.filter((value) => (value !== panelName)));
-      } else {
-        // add panel
-        dispatch('updateVisiblePanels', state.visiblePanels.concat(panelName));
-      }
+    changeCurrentTutorialPage({ commit }, newPageIndex) {
+      commit('setCurrentTutorialPage', newPageIndex);
+    },
+    turnExamplesOn({ commit, state }) {
+      commit('setBrowsingExamples', true);
+      commit('setNonExampleCode', state.code);
+    },
+    turnExamplesOff({ commit, state }) {
+      commit('setBrowsingExamples', false);
+      commit('setCode', state.nonExampleCode);
     }
   }
 });

@@ -1,8 +1,10 @@
 <!-- a panel that contains help information about the current selection -->
 <template>
-  <CollapsiblePanel panelName="selection">
+  <div>
     <div v-if="selectionModel === null">
-      <p>Nothing selected</p>
+      <div class="alert alert-primary">
+        <p>Click on a part of the code in the explanation to learn more about it.</p>
+      </div>
     </div>
     <div v-else-if="selectionModel.type === 'text'">
       <p class="lead">Text</p>
@@ -10,7 +12,7 @@
     </div>
     <div v-else>
       <p class="lead">{{ selectionModel.name }}</p>
-      <p>{{ tags[selectionModel.name].description }}</p>
+      <ReferenceTag :tag="selectionModel.name" />
       <table v-if="selectionModel.attributes.length > 0" class="table">
         <thead>
           <tr>
@@ -26,25 +28,26 @@
         </tbody>
       </table>
     </div>
-  </CollapsiblePanel>
+  </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex';
 
-import { tags } from '../help/help';
-import CollapsiblePanel from './CollapsiblePanel';
+import { tags } from '../js/help';
+
+import ReferenceTag from './ReferenceTag';
 
 export default {
   name: 'SelectionPanel',
-    props: {
-        name: {
-            title: 'Selection',
-            description: "TODO"
-        }
-    },
   components: {
-    CollapsiblePanel
+    ReferenceTag
+  },
+  props: {
+    name: {
+      title: 'Selection',
+      description: "TODO"
+    }
   },
   computed: {
     ...mapState([
