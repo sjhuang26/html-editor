@@ -8,7 +8,8 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          A project by <a href="https://github.com/sjhuang26/html-editor">Suhao Jeffrey Huang</a>
+          An <a href="https://rcos.io">RCOS</a> project by
+          <a href="https://github.com/sjhuang26/html-editor">Suhao Jeffrey Huang</a>
         </li>
       </ul>
     </div>
