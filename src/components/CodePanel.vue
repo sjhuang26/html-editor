@@ -10,61 +10,61 @@
       <button class="btn btn-primary" @click="setCurrentHelpPanelTab('Tutorial')">Need help? Go to the tutorial.</button>
     </b-alert>
     <Codemirror
-        class="code-input"
-        :value="code"
-        @input="updateCode"
-        :options="codemirrorOptions" />
+      class="code-input"
+      :value="code"
+      @input="updateCode"
+      :options="codemirrorOptions" />
   </div>
 </template>
 
 <script>
-    import 'codemirror/lib/codemirror.css';
-    import 'codemirror/theme/monokai.css';
-    import 'codemirror/mode/htmlmixed/htmlmixed';
-    import {codemirror as Codemirror} from 'vue-codemirror';
-    import {mapGetters, mapActions, mapState, mapMutations} from 'vuex';
-    export default {
-        name: 'CodePanel',
-        props: {
-            name: {
-                title: 'Code',
-                description: 'TODO'
-            }
-        },
-        components: {
-            Codemirror
-        },
-        data() {
-            return {
-                codemirrorOptions: {
-                    mode: 'text/html',
-                    theme: 'monokai',
-                    lineWrapping: true
-                }
-            }
-        },
-        methods: {
-            ...mapActions([
-                'updateCode',
-                'turnExamplesOff'
-            ]),
-            ...mapMutations([
-                'setCurrentHelpPanelTab'
-            ])
-        },
-        computed: {
-            ...mapState([
-                'code',
-                'isBrowsingExamples'
-            ]),
-            ...mapGetters([
-                'codeModel'
-            ])
-        }
-    };
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/monokai.css';
+import 'codemirror/mode/htmlmixed/htmlmixed';
+import {codemirror as Codemirror} from 'vue-codemirror';
+import {mapGetters, mapActions, mapState, mapMutations} from 'vuex';
+export default {
+  name: 'CodePanel',
+  props: {
+    name: {
+      title: 'Code',
+      description: 'TODO'
+    }
+  },
+  components: {
+    Codemirror
+  },
+  data() {
+    return {
+      codemirrorOptions: {
+        mode: 'text/html',
+        theme: 'monokai',
+        lineWrapping: true
+      }
+    }
+  },
+  methods: {
+    ...mapActions([
+      'updateCode',
+      'turnExamplesOff'
+    ]),
+    ...mapMutations([
+      'setCurrentHelpPanelTab'
+    ])
+  },
+  computed: {
+    ...mapState([
+      'code',
+      'isBrowsingExamples'
+    ]),
+    ...mapGetters([
+      'codeModel'
+    ])
+  }
+};
 </script>
 
 <style scoped>
-  .code-input {
-  }
+.code-input {
+}
 </style>
