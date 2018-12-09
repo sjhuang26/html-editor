@@ -25,11 +25,12 @@ export const tutorial = {
                 {
                     description: `An h1 tag followed by two p tags. Try changing the words inside the tags.`,
                     code: `<h1>Hi</h1>\n<p>Hi!</p>\n<p>Hi again.</p>`
-                },
-                {
-                    description: `A comment. It won't show up on the web page.`,
-                    code: `<p>Hi</p>\n<!-- Your comments here --><p>Another hi</p>`
                 }
+                // This part of the tutorial will be moved to a new section.
+                // {
+                //     description: `A comment. It won't show up on the web page.`,
+                //     code: `<p>Hi</p>\n<!-- Your comments here --><p>Another hi</p>`
+                // }
             ]
         },
         {
