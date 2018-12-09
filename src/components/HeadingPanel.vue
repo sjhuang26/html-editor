@@ -9,9 +9,9 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           An <a href="https://rcos.io">RCOS</a> project by
-          <a href="https://github.com/sjhuang26/html-editor">Suhao Jeffrey Huang</a> and
-          <a href="https://github.com/Chimoe">Zifeng Su</a>
-
+          <a href="https://github.com/sjhuang26">Suhao Jeffrey Huang</a> and
+          <a href="https://github.com/Chimoe">Zifeng Su</a>{{ /* blank space */ ` ` }}
+          <a href="https://github.com/sjhuang26/html-editor">(source code)</a>
         </li>
       </ul>
     </div>
@@ -20,15 +20,9 @@
 </template>
 
 <script>
-  export default {
-    name: 'HeadingPanel',
-    props: {
-      name: {
-        title: 'Heading',
-        description: "TODO"
-      }
-    },
-  };
+export default {
+  name: 'HeadingPanel'
+};
 </script>
 
 <style scoped>
