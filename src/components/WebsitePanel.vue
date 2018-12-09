@@ -1,6 +1,6 @@
 <!-- a panel that contains the website produced by the HTML code -->
 <template>
-  <div class="v-layout website-panel">
+  <div class="v-layout website">
     <Sandbox :content="code"/>
   </div>
 </template>
@@ -28,8 +28,8 @@ export default {
 };
 </script>
 
-<style scoped>
-.website-panel {
-  box-shadow: 2px 2px 10px #AAA;
+<style scoped lang="scss">
+.website {
+  outline: 2px solid $primary;
 }
 </style>

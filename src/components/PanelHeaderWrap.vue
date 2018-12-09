@@ -42,15 +42,17 @@ export default {
 <style lang="scss" scoped>
 .panel-header {
   font-size: 2rem;
-  background-color: $primary;
+  background-color: white;
+  border-bottom: 7px solid $primary;
 }
 .panel-header-title {
-  color: white;
+  color: black;
   margin: 0 .5rem;
+  font-weight: bold;
 }
 .panel-header-button {
   color: white;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: $primary;
   font-size: 1.5rem;
   border-radius: 0.25rem;
   margin: .25rem;

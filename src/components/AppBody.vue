@@ -7,15 +7,17 @@
     </div>
     <div class="body h-layout">
       <CardPanelWrap>
+        <b-card class="v-layout scroll-layout">
         <PanelHeaderWrap
           :title="currentHelpPanelTab"
-          bodyClass="v-layout scroll-layout"
+          bodyClass="scroll-layout"
         >
           <WelcomePanel v-show="currentHelpPanelTab === 'Welcome'" />
           <TutorialPanel v-show="currentHelpPanelTab === 'Tutorial'" />
           <CssPanel v-show="currentHelpPanelTab === 'CSS'" />
           <SelectionPanel v-show="currentHelpPanelTab === 'Current selection'" />
         </PanelHeaderWrap>
+        </b-card>
       </CardPanelWrap>
       <CardPanelWrap>
         <PanelHeaderWrap
@@ -24,14 +26,14 @@
           @rightButtonClick="isExplanationShown = !isExplanationShown"
           :bodyClass="'v-layout scroll-layout'"
         >
-          <CodePanel v-show="!isExplanationShown" />
+          <CodePanel v-show="!isExplanationShown" id="help-ref__code-editor"/>
           <div v-show="isExplanationShown" class="v-layout">
             <ExplanationPanel class="scroll-layout" />
             <SelectionPanel class="scroll-layout" />
           </div>
         </PanelHeaderWrap>
       </CardPanelWrap>
-      <CardPanelWrap>
+      <CardPanelWrap class="website-panel-shadow" id="help-ref__website">
         <PanelHeaderWrap title="Website" bodyClass="v-layout">
           <WebsitePanel />
         </PanelHeaderWrap>
@@ -92,5 +94,15 @@ export default {
 }
 .CodeMirror {
   height: 100%!important;
+}
+.panel-border {
+  background: #EEE;
+  width: 8px;
+  margin: 10px 0;
+  flex: 0 0 auto!important;
+}
+.website-panel-shadow {
+  box-shadow: 2px 2px 10px #AAA;
+  padding: 1rem;
 }
 </style>
