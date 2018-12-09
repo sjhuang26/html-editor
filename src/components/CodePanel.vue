@@ -23,7 +23,6 @@ import 'codemirror/theme/monokai.css';
 import 'codemirror/mode/htmlmixed/htmlmixed';
 import {codemirror as Codemirror} from 'vue-codemirror';
 import {mapGetters, mapActions, mapState, mapMutations} from 'vuex';
-
 export default {
   name: 'CodePanel',
   props: {
