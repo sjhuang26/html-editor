@@ -10,7 +10,7 @@
     </div>
     <template v-if="topic.examples !== undefined">
       <h1>Examples</h1>
-      <Examples :examples="topic.examples" />
+      <Examples hideTitle :examples="topic.examples" />
     </template>
   </div>
 </template>

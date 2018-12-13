@@ -1,17 +1,19 @@
 <template>
   <div>
     <p>{{ tags[tag].extendedDescription }}</p>
-    <b-card title="Code example">
-      <pre><code>{{ codeSample }}</code></pre>
-    </b-card>
+    <Examples :examples="[codeSample]"/>
   </div>
 </template>
 
 <script>
 import { tags } from '../js/help';
+import Examples from './Examples';
 
 export default {
   name: 'ReferenceTag',
+  components: {
+    Examples
+  },
   props: {
     tag: {
       type: String,

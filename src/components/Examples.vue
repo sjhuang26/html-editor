@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-card title="Examples"> 
+    <b-card :title="hideTitle ? '' : 'Examples'"> 
       <b-tabs>
         <b-tab v-for="(example, index) of examples" :key="'tutorial-example-' + JSON.stringify(example)" :title="String(index + 1)">
           <template v-if="typeof example === 'string'">
@@ -8,7 +8,7 @@
           </template>
           <template v-else>
             <p>{{ example.description }}</p>
-            <pre class="example-code"><code>{{ example.code }}</code></pre>
+            <code class="example-code"><pre>{{ example.code }}</pre></code>
           </template>
             <b-button @click="tutorialTryOut(example.code)">Edit example</b-button>
         </b-tab>
@@ -42,6 +42,10 @@ export default {
     examples: {
       type: Array,
       required: true
+    },
+    hideTitle: {
+      type: Boolean,
+      required: false
     }
   },
   methods: {

@@ -8,14 +8,14 @@ If a tag has usedWith parameter set to X, then that tag should not be used witho
 export const tags = {
   html: {
     title: 'html',
-    description: 'contains the whole website',
+    description: 'a tag that goes around the whole website',
     extendedDescription: 'All other tags go into this tag.',
     codeSample: `<html>\n\t<body>\n\t\t<p>Hi!</p>\n\t</body>\n</html>`
   },
   body: {
     title: 'body',
-    description: 'contains all website content',
-    extendedDescription: 'Contains all website content -- paragraphs, headers, and so on.',
+    description: 'a tag that goes around all website content',
+    extendedDescription: 'Contains all website content: paragraphs, headers, and so on.',
     usedWith: 'html'
   },
   h1: {
@@ -36,6 +36,24 @@ export const tags = {
     extendedDescription: 'Creates a header that is the #3 largest.',
     codeSample: '<h3>My header</h3>',
   },
+  h4: {
+    title: 'header #4',
+    description: '#4 largest header',
+    extendedDescription: 'Creates a header that is the #4 largest.',
+    codeSample: '<h4>My header</h4>',
+  },
+  h5: {
+    title: 'header #5',
+    description: '#5 largest header',
+    extendedDescription: 'Creates a header that is the #5 largest.',
+    codeSample: '<h5>My header</h5>',
+  },
+  h6: {
+    title: 'header #6',
+    description: '#6 largest header',
+    extendedDescription: 'Creates a header that is the #6 largest.',
+    codeSample: '<h6>My header</h6>',
+  },
   p: {
     title: 'paragraph',
     description: 'a paragraph of text',
@@ -51,7 +69,7 @@ export const tags = {
   div: {
     title: 'div',
     description: 'a box that can contain other items',
-    extendedDescription: 'A box that you can put other tags into. You can use CSS to add effects such as outlines and margins.',
+    extendedDescription: 'A box that you can put other tags into and add effects to such as borders.',
     codeSample: '<div style="outline: 1px solid black">\n\t<p>Contents</p>\n</div>'
   },
   table: {
@@ -136,7 +154,7 @@ export const tags = {
   input: {
     title: 'form element',
     description: 'form element',
-    extendedDescription: 'A form element (text box, checkbox, etc).',
+    extendedDescription: `A tag that can morph into most kinds of form elements (text box, checkbox, etc) based on its 'type' attribute.`,
     codeSample: `<input type="checkbox"></input>`
   }
 };
@@ -148,11 +166,11 @@ export const categorizedTags = [
     tags: ['p', 'h1', 'h2', 'h3', 'b', 'i', 'u'],
     examples: [
       {
-        description: 'Two headings with a paragraph.',
+        description: 'Two headings with a paragraph. Try adding another heading.',
         code: `<h1>Big heading</h1>\n<h2>Smaller heading</h2>\n<p>Paragraph</p>`
       },
       {
-        description: 'Bold, italic, and underline.',
+        description: 'Bold, italic, and underline. Try changing the P tag into an H1 tag.',
         code: `<p>Text can be <b>Bold</b>, it can also be <i>Italic</i>, and finally, it can be <u>Underline</u>.</p>`
       }
     ]
@@ -163,25 +181,69 @@ export const categorizedTags = [
     tags: ['a', 'button'],
     examples: [
       {
-        description: 'A row of buttons.',
+        description: 'A row of buttons. Try adding another button to the row.',
         code: `<button>1</button><button>2</button><button>3</button>`
+      },
+      {
+        description: 'A link. Note how the href attribute is set to https://google.com. Try changing the text inside the link.',
+        code: `<a href="https://google.com">Go to Google</a>`
+      },
+      {
+        description: 'A link inside a paragraph.',
+        code: `<p>This link will go to Google! <a href="https://google.com">Click here.</a>`
       }
     ]
   },
   {
     name: 'Lists',
     description: `Bulleted lists and numbered lists.`,
-    tags: ['ul', 'ol', 'li']
+    tags: ['ul', 'ol', 'li'],
+    examples: [
+      {
+        description: 'A numbered list with three items. Try swapping the OL tag with an UL tag.',
+        code: `<ol>\n\t<li>Eggs</li>\n\t<li>Bread</li>\n\t<li>HTML</li>\n</ol>`
+      },
+      {
+        description: 'A numbered list inside another numbered list. Try adding more items to each list.',
+        code: `<ol>
+\t<li>Eggs</li>
+\t<li>
+\t\t<ol>
+\t\t\t<li>Look at me!</li>
+\t\t</ol>
+\t</li>
+</ol>`
+      },
+      {
+        description: 'A numbered list with paragraphs.',
+        code: `<ol>
+\t<li><p>Step 1: do this</p></li>
+\t<li><p>Step 2: do that</p></li>
+</ol>` 
+      }
+    ]
   },
   {
     name: 'Forms',
     description: `Forms.`,
-    tags: ['input']
+    tags: ['input'],
+    examples: [
+      {
+        description: `A basic form.`,
+        code: `<p>Enter your age: <input type="text"></input></p>`
+      }
+    ]
   },
   {
     name: 'Structure and layout',
     description: `Tags that are used as boxes for other tags and don't have any special visual effects associated with them.`,
-    tags: ['html', 'body', 'div']
+    tags: ['html', 'body', 'div'],
+    examples: [
+      {
+        description: 'A DIV tag with an outline.',
+        code: `<div style="outline: 10px solid green">Hello world</div>`
+      }
+    ]
   }
 ];
 
