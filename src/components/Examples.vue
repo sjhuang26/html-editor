@@ -10,7 +10,7 @@
             <p>{{ example.description }}</p>
             <code class="example-code"><pre>{{ example.code }}</pre></code>
           </template>
-            <b-button @click="tutorialTryOut(example.code)">Edit example</b-button>
+          <b-button @click="tutorialTryOut((typeof example === 'string') ? example : example.code)">Edit example</b-button>
         </b-tab>
       </b-tabs>
     </b-card>

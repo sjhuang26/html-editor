@@ -87,12 +87,16 @@ export default new Vuex.Store({
       commit('setCurrentTutorialPage', newPageIndex);
     },
     turnExamplesOn({ commit, state }) {
-      commit('setBrowsingExamples', true);
-      commit('setNonExampleCode', state.code);
+      if (!state.isBrowsingExamples) {
+        commit('setBrowsingExamples', true);
+        commit('setNonExampleCode', state.code);
+      }
     },
     turnExamplesOff({ commit, state }) {
-      commit('setBrowsingExamples', false);
-      commit('setCode', state.nonExampleCode);
+      if (state.isBrowsingExamples) {
+        commit('setBrowsingExamples', false);
+        commit('setCode', state.nonExampleCode);
+      }
     }
   }
 });
