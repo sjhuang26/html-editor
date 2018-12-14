@@ -25,6 +25,18 @@
           </li>
         </ul>
       </div>
+      <div class="tutorial-cluster">
+        <h2>Finishing up</h2>
+        <ul class="list-group">
+          <li
+            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+            @click="setTutorialSection(['conclusion'])"
+          >
+            Conclusion
+            <i class="fa fa-arrow-right"></i>
+          </li>
+        </ul>
+      </div>
     </div>
     <PanelHeaderWrap
       v-if="tutorialSection !== null && tutorialSection[0] === 'page'"
@@ -44,6 +56,21 @@
       bodyClass="scroll-layout"
     >
       <TutorialTopic :topic="categorizedTags[tutorialSection[1]]" />
+    </PanelHeaderWrap>
+    <PanelHeaderWrap
+      v-if="tutorialSection !== null && tutorialSection[0] === 'conclusion'"
+      :includeBack="true"
+      title="Conclusion"
+      @backButtonClick="setTutorialSection(null)"
+      bodyClass="scroll-layout"
+    >
+      <h1>Congratulations! You're done!</h1>
+      <p>Some things you can do next:</p>
+      <ul>
+        <li>Try making your own website; start writing HTML in the code editor box!</li>
+        <li>This tutorial just covered the basics. Try looking at the <a href="https://www.w3schools.com/html/default.asp">W3Schools</a> tutorial for a more comprehensive tutorial. Note that this app does not yet support more advanced features of HTML which may be covered in more advanced tutorials (such as comments).</li>
+        <li>Once you create your website, click "export code" to download an HTML file that should open your website when double-clicked.</li>
+      </ul>
     </PanelHeaderWrap>
   </div>
 </template>
