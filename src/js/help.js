@@ -162,7 +162,7 @@ export const tags = {
 export const categorizedTags = [
   {
     name: 'Text',
-    description: `Headers, paragraphs, and anything to do with text.`,
+    description: `This section covers headers, paragraphs, and tags related to text formatting such as bold, italic, and underline.`,
     tags: ['p', 'h1', 'h2', 'h3', 'b', 'i', 'u'],
     examples: [
       {
@@ -177,7 +177,7 @@ export const categorizedTags = [
   },
   {
     name: 'Interactivity',
-    description: `Things you can click: buttons, links, and so on.`,
+    description: `This section covers things you can click: buttons and links.`,
     tags: ['a', 'button'],
     examples: [
       {
@@ -196,7 +196,7 @@ export const categorizedTags = [
   },
   {
     name: 'Lists',
-    description: `Bulleted lists and numbered lists.`,
+    description: `This section covers bulleted lists and numbered lists.`,
     tags: ['ul', 'ol', 'li'],
     examples: [
       {
@@ -225,18 +225,22 @@ export const categorizedTags = [
   },
   {
     name: 'Forms',
-    description: `Forms.`,
+    description: `This section covers forms.`,
     tags: ['input'],
     examples: [
       {
         description: `A basic form.`,
         code: `<p>Enter your age: <input type="text"></input></p>`
+      },
+      {
+        description: `Another basic form.`,
+        code: `<p>Are you over 18? <input type="checkbox"></input></p>`
       }
     ]
   },
   {
     name: 'Structure and layout',
-    description: `Tags that are used as boxes for other tags and don't have any special visual effects associated with them.`,
+    description: `This section covers tags that are used as boxes for other tags and don't have any special visual effects associated with them.`,
     tags: ['html', 'body', 'div'],
     examples: [
       {

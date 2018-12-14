@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>{{ tags[tag].extendedDescription }}</p>
-    <Examples :examples="[codeSample]"/>
+    <Examples :examples="[tags[tag].codeSample]"/>
   </div>
 </template>
 

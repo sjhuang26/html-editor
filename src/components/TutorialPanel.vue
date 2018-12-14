@@ -20,10 +20,7 @@
             class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
             @click="setTutorialSection(['topic', index])"
           >
-            <div>
-              <p class="lead">{{ category.name }}</p>
-              <p>{{ category.description }}</p>
-            </div>
+            {{ category.name }}
             <i class="fa fa-arrow-right"></i>
           </li>
         </ul>

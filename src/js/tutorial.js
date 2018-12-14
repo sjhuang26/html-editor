@@ -78,28 +78,12 @@ export const tutorial = {
             lessonMarkdownContent: lessonContent_tagAttributes,
             examples: [
                 {
-                    description: 'A button with height 200px.',
-                    code: `<button height="200px">Hello</button>`
-                },
-                {
-                    description: 'What about width 200px?',
-                    code: `<button width="200px">Hello</button>`
-                },
-                {
-                    description: 'What about both height and width 200px?',
-                    code: `<button height="200px" width="200px">Hello</button>`
-                },
-                {
-                    description: 'A hyperlink to google.com.',
-                    code: `<a href="https://www.google.com">\nThis is a link</a>\n<a>This is not a link</a> `
-                },
-                {
-                    description:'A red colored paragraph.',
-                    code: `<p style="color:red">\nI am a red paragraph.</p>`
-                },
-                {
                     description:'A paragraph with a tooltip. Mouse over the paragraph to display the tooltip.',
                     code: `<p title="This is a tooltip">\nThis is a paragraph with a tooltip.</p>`
+                },
+                {
+                    description: 'A link that goes to Google. Try changing the href attribute so the link goes to another website.',
+                    code: `<a href="https://google.com">Go to Google</a>`
                 }
             ]
         }
